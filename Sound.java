@@ -4,8 +4,9 @@ import java.io.File;
 public class Sound {
   private Clip sound;
   public Sound(String filePath) {
+    String fullFilePath = "";
     try {
-      String fullFilePath = System.getProperty("user.dir") + "/" + filePath;
+      fullFilePath = System.getProperty("user.dir") + "/" + filePath;
       fullFilePath = fullFilePath.replace("\\", "/");
       AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(fullFilePath).getAbsoluteFile());
       sound = AudioSystem.getClip();
