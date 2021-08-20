@@ -1,5 +1,5 @@
 # Wein2D
-A very simple Graphics Library for Java built on top of the native java.awt and javax.swing libraries. It has support for creating multiple Windows, drawing simple shapes, images and text to these Windows, detecting input from keyboard and mouse and playing sounds.
+A very simple Graphics Library for Java built on top of the java.awt and javax.swing libraries. It has support for creating multiple Windows, drawing simple shapes, images and text to these Windows, detecting input from keyboard and mouse and playing sounds.
 
 # Basic Example
 Here is an example for a simple Window:
