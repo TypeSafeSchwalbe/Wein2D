@@ -65,9 +65,11 @@ public class JavaPanel extends JPanel {
     // Font
     if (isFont1 == true) {
       for (int i = 0; i < fonts1.length; i++) {
-        g2d.setPaint(new Color(fonts1[i][3], fonts1[i][4], fonts1[i][5]));
-        g2d.setFont(new Font(fonts2[i][1], Font.PLAIN, fonts1[i][2]));
-        g2d.drawString(fonts2[i][0], fonts1[i][0], fonts1[i][1]);
+        try {
+          g2d.setPaint(new Color(fonts1[i][3], fonts1[i][4], fonts1[i][5]));
+          g2d.setFont(new Font(fonts2[i][1], Font.PLAIN, fonts1[i][2]));
+          g2d.drawString(fonts2[i][0], fonts1[i][0], fonts1[i][1]);
+        } catch(Exception probablyNullPointerException) {}
       }
     }
     isFont1 = false;
