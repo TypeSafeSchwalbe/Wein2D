@@ -10,8 +10,10 @@ public class Sound {
       AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(fullFilePath).getAbsoluteFile());
       sound = AudioSystem.getClip();
       sound.open(audioInputStream);
-      // clip.start();
     } catch (Exception fileLoadingException) {}
+    if (new File(fullFilePath).exists() == false) {
+      System.out.println("Error when loading a Sound: Sound at '" + fullFilePath + "' doesn't exist.");
+    }
   }
   public void play() {
     sound.start();
