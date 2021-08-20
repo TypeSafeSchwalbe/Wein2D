@@ -34,30 +34,36 @@ public class JavaPanel extends JPanel {
     // Rectangle
     if (isRect == true) {
       for (int i = 0; i < rects.length; i++) {
-        if (rects[i][3] > pWidth || rects[i][4] > pHeight || rects[i][3] < 0 - rects[i][5] || rects[i][4] < 0 - rects[i][6]) { continue; }
-        else {
-          g2d.setPaint(new Color(rects[i][0], rects[i][1], rects[i][2]));
-          g2d.fillRect(rects[i][3], rects[i][4], rects[i][5], rects[i][6]);
-        }
+        try {
+          if (rects[i][3] > pWidth || rects[i][4] > pHeight || rects[i][3] < 0 - rects[i][5] || rects[i][4] < 0 - rects[i][6]) { continue; }
+          else {
+            g2d.setPaint(new Color(rects[i][0], rects[i][1], rects[i][2]));
+            g2d.fillRect(rects[i][3], rects[i][4], rects[i][5], rects[i][6]);
+          }
+        } catch(Exception probablyNullPointerException) {}
       }
     }
     isRect = false;
     // Oval
     if (isOval == true) {
       for (int i = 0; i < ovals.length; i++) {
-        if (ovals[i][3] > pWidth || ovals[i][4] > pHeight || ovals[i][3] < 0 - ovals[i][5] || ovals[i][4] < 0 - ovals[i][6]) { continue; }
-        else {
-          g2d.setPaint(new Color(ovals[i][0], ovals[i][1], ovals[i][2]));
-          g2d.fillOval(ovals[i][3], ovals[i][4], ovals[i][5], ovals[i][6]);
-        }
+        try {
+          if (ovals[i][3] > pWidth || ovals[i][4] > pHeight || ovals[i][3] < 0 - ovals[i][5] || ovals[i][4] < 0 - ovals[i][6]) { continue; }
+          else {
+            g2d.setPaint(new Color(ovals[i][0], ovals[i][1], ovals[i][2]));
+            g2d.fillOval(ovals[i][3], ovals[i][4], ovals[i][5], ovals[i][6]);
+          }
+        } catch(Exception probablyNullPointerException) {}
       }
     }
     isOval = false;
     // Image
     if (isSprite2 == true) {
       for (int i = 0; i < sprites2.length; i++) {
-        if (sprites1[i][0] > pWidth || sprites1[i][1] > pHeight || sprites1[i][0] < 0 - sprites2[i].getWidth(null) || sprites1[i][1] < 0 - sprites2[i].getHeight(null)) { continue; }
-        else { g2d.drawImage(sprites2[i], sprites1[i][0], sprites1[i][1], null); }
+        try {
+          if (sprites1[i][0] > pWidth || sprites1[i][1] > pHeight || sprites1[i][0] < 0 - sprites2[i].getWidth(null) || sprites1[i][1] < 0 - sprites2[i].getHeight(null)) { continue; }
+          else { g2d.drawImage(sprites2[i], sprites1[i][0], sprites1[i][1], null); }
+        } catch(Exception probablyNullPointerException) {}
       }
     }
     isSprite1 = false;
