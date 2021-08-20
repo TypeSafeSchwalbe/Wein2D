@@ -147,16 +147,20 @@ public class Window extends JFrame {
     int[] sprite1 = {posX, posY};
     Image sprite2 = sprite.getImage();
     if (panel.isSprite1 == true) {
-      panel.sprites1 = Arrays.copyOf(panel.sprites1, drawArrayLength1 + 1);
-      panel.sprites1[drawArrayLength1] = sprite1;
-      panel.sprites2 = Arrays.copyOf(panel.sprites2, drawArrayLength2 + 1);
-      panel.sprites2[drawArrayLength2] = sprite2;
+      try {
+        panel.sprites1 = Arrays.copyOf(panel.sprites1, drawArrayLength1 + 1);
+        panel.sprites1[drawArrayLength1] = sprite1;
+        panel.sprites2 = Arrays.copyOf(panel.sprites2, drawArrayLength2 + 1);
+        panel.sprites2[drawArrayLength2] = sprite2;
+      } catch(Exception probablyNullPointerException) {}
     } else {
-      panel.sprites1[0] = sprite1;
-      panel.sprites2 = Arrays.copyOf(panel.sprites2, 1);
-      panel.sprites2[0] = sprite2;
-      panel.isSprite1 = true;
-      panel.isSprite2 = true;
+      try {
+        panel.sprites1[0] = sprite1;
+        panel.sprites2 = Arrays.copyOf(panel.sprites2, 1);
+        panel.sprites2[0] = sprite2;
+        panel.isSprite1 = true;
+        panel.isSprite2 = true;
+      } catch(Exception probablyNullPointerException) {}
     }
   }
   // Font
