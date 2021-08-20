@@ -2,6 +2,7 @@ package wein2d;
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.Arrays;
 
 public class JavaPanel extends JPanel {
   protected int[][] rects = {{}};
@@ -71,5 +72,12 @@ public class JavaPanel extends JPanel {
     }
     isFont1 = false;
     isFont2 = false;
+    // Reset Arrays
+    rects = Arrays.copyOf(rects, 1);
+    ovals = Arrays.copyOf(ovals, 1);
+    sprites1 = Arrays.copyOf(sprites1, 1);
+    sprites2 = Arrays.copyOf(sprites2, 0);
+    fonts1 = Arrays.copyOf(fonts1, 1);
+    fonts2 = Arrays.copyOf(fonts2, 1);
   }
 }
