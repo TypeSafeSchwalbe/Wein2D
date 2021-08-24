@@ -38,6 +38,9 @@ public class BasicExample {
 
 # Sprite
 - **Sprite(String filePath) -> *create a Sprite Object from a file for later drawing***
+- Sprite.getImage() -> returns the Sprite as an java.awt.Image (import needed).
+- Sprite.getImage().getWidth(null) -> returns the Sprite's width (no imports needed).
+- Sprite.getImage().getHeight(null) -> returns the Sprite's height (no imports needed).
 
 # Sound
 - **Sound(String filePath) -> *create a Sound Object from a .wav file***
