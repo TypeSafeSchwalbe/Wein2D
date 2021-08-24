@@ -17,6 +17,8 @@ public class BasicExample {
 
 # Window (Basics)
 - **Window(int width, int height, boolean resizable) -> *create a Window Object***
+- Window.getWidth() -> *returns the Window's width*
+- Window.getHeight() -> *returns the Window's height*
 - Window.defineTitle(String title) -> *choose a Title for your Window*
 - Window.defineIcon(Sprite icon) -> *choose an Icon for your Window*
 - Window.defineVisible(boolean visible) -> *change the visibility of your Window (false by default)*
@@ -38,9 +40,9 @@ public class BasicExample {
 
 # Sprite
 - **Sprite(String filePath) -> *create a Sprite Object from a file for later drawing***
-- Sprite.getImage() -> returns the Sprite as an java.awt.Image (import needed).
-- Sprite.getImage().getWidth(null) -> returns the Sprite's width (no imports needed).
-- Sprite.getImage().getHeight(null) -> returns the Sprite's height (no imports needed).
+- Sprite.getImage() -> *returns the Sprite as an java.awt.Image (import needed).*
+- Sprite.getImage().getWidth(null) -> *returns the Sprite's width.*
+- Sprite.getImage().getHeight(null) -> *returns the Sprite's height.*
 
 # Sound
 - **Sound(String filePath) -> *create a Sound Object from a .wav file***
