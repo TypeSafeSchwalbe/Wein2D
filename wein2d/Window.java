@@ -119,26 +119,50 @@ public class Window extends JFrame {
     return mouseManager.mouseButtonR;
   }
   // Methods for rendering Objects
-  public void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) {
-    int drawArrayLength = panel.rects.length;
-    int[] rect = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
-    if (panel.isRect == true) {
-      panel.rects = Arrays.copyOf(panel.rects, drawArrayLength + 1);
-      panel.rects[drawArrayLength] = rect;
+  public void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB, boolean drawnAfterSprites) {
+    if (drawnAfterSprites == false) {
+      int drawArrayLength = panel.rects.length;
+      int[] rect = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
+      if (panel.isRect == true) {
+        panel.rects = Arrays.copyOf(panel.rects, drawArrayLength + 1);
+        panel.rects[drawArrayLength] = rect;
+      } else {
+        panel.rects[0] = rect;
+        panel.isRect = true;
+      }
     } else {
-      panel.rects[0] = rect;
-      panel.isRect = true;
+      int drawArrayLength2 = panel.rects2.length;
+      int[] rect2 = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
+      if (panel.isRect2 == true) {
+        panel.rects2 = Arrays.copyOf(panel.rects2, drawArrayLength2 + 1);
+        panel.rects2[drawArrayLength2] = rect2;
+      } else {
+        panel.rects2[0] = rect2;
+        panel.isRect2 = true;
+      }
     }
   }
-  public void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) {
-    int drawArrayLength = panel.ovals.length;
-    int[] oval = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
-    if (panel.isOval == true) {
-      panel.ovals = Arrays.copyOf(panel.ovals, drawArrayLength + 1);
-      panel.ovals[drawArrayLength] = oval;
+  public void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB, boolean drawnAfterSprites) {
+    if (drawnAfterSprites == false) {
+      int drawArrayLength = panel.ovals.length;
+      int[] oval = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
+      if (panel.isOval == true) {
+        panel.ovals = Arrays.copyOf(panel.ovals, drawArrayLength + 1);
+        panel.ovals[drawArrayLength] = oval;
+      } else {
+        panel.ovals[0] = oval;
+        panel.isOval = true;
+      }
     } else {
-      panel.ovals[0] = oval;
-      panel.isOval = true;
+      int drawArrayLength2 = panel.ovals2.length;
+      int[] oval2 = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
+      if (panel.isOval2 == true) {
+        panel.ovals2 = Arrays.copyOf(panel.ovals2, drawArrayLength2 + 1);
+        panel.ovals2[drawArrayLength2] = oval2;
+      } else {
+        panel.ovals2[0] = oval2;
+        panel.isOval2 = true;
+      }
     }
   }
   public void drawSprite(Sprite sprite, int posX, int posY) {
