@@ -7,8 +7,12 @@ import java.util.Arrays;
 public class JavaPanel extends JPanel {
   protected int[][] rects = {{}};
   protected boolean isRect = false;
+  protected int[][] rects2 = {{}};
+  protected boolean isRect2 = false;
   protected int[][] ovals = {{}};
   protected boolean isOval = false;
+  protected int[][] ovals2 = {{}};
+  protected boolean isOval2 = false;
   protected int[][] sprites1 = {{}};
   protected boolean isSprite1 = false;
   protected Image[] sprites2 = {};
@@ -68,6 +72,32 @@ public class JavaPanel extends JPanel {
     }
     isSprite1 = false;
     isSprite2 = false;
+    // Rectangle2
+    if (isRect2 == true) {
+      for (int i = 0; i < rects2.length; i++) {
+        try {
+          if (rects2[i][3] > pWidth || rects2[i][4] > pHeight || rects2[i][3] < 0 - rects2[i][5] || rects2[i][4] < 0 - rects2[i][6]) { continue; }
+          else {
+            g2d.setPaint(new Color(rects2[i][0], rects2[i][1], rects2[i][2]));
+            g2d.fillRect(rects2[i][3], rects2[i][4], rects2[i][5], rects2[i][6]);
+          }
+        } catch(Exception probablyNullPointerException) {}
+      }
+    }
+    isRect2 = false;
+    // Oval2
+    if (isOval2 == true) {
+      for (int i = 0; i < ovals2.length; i++) {
+        try {
+          if (ovals2[i][3] > pWidth || ovals2[i][4] > pHeight || ovals2[i][3] < 0 - ovals2[i][5] || ovals2[i][4] < 0 - ovals2[i][6]) { continue; }
+          else {
+            g2d.setPaint(new Color(ovals2[i][0], ovals2[i][1], ovals2[i][2]));
+            g2d.fillOval(ovals2[i][3], ovals2[i][4], ovals2[i][5], ovals2[i][6]);
+          }
+        } catch(Exception probablyNullPointerException) {}
+      }
+    }
+    isOval2 = false;
     // Font
     if (isFont1 == true) {
       for (int i = 0; i < fonts1.length; i++) {
@@ -83,6 +113,8 @@ public class JavaPanel extends JPanel {
     // Reset Arrays
     rects = Arrays.copyOf(rects, 1);
     ovals = Arrays.copyOf(ovals, 1);
+    rects2 = Arrays.copyOf(rects2, 1);
+    ovals2 = Arrays.copyOf(ovals2, 1);
     sprites1 = Arrays.copyOf(sprites1, 1);
     sprites2 = Arrays.copyOf(sprites2, 0);
     fonts1 = Arrays.copyOf(fonts1, 1);
