@@ -13,21 +13,30 @@ public class Window extends JFrame {
   private MouseManager mouseManager;
   private Dimension screenDim;
   // Constructor
-  public Window(int canvasWidth, int canvasHeight, boolean resizable) {
+  public Window(int canvasWidth, int canvasHeight) {
     screenDim = Toolkit.getDefaultToolkit().getScreenSize();
-    JavaPanel javaPanel = new JavaPanel(canvasWidth, canvasHeight);
-    this.setPreferredSize(new Dimension(canvasWidth, canvasHeight));
-    this.add(javaPanel);
-    this.setResizable(resizable);
+    panel = new JavaPanel(canvasWidth, canvasHeight);
+    createWindow(false);
+  }
+  public void createWindow(boolean fullscreen) {
+    this.add(panel);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    panel = javaPanel;
     keyManager = new KeyManager();
     mouseManager = new MouseManager();
     this.addKeyListener(keyManager);
     panel.addMouseListener(mouseManager);
     panel.addMouseMotionListener(mouseManager);
+    if (fullscreen == true) {
+      this.setUndecorated(true);
+      boolean visible = this.isVisible();
+      this.setVisible(true);
+      this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+      this.setVisible(visible);
+    }
     this.pack();
-    this.setLocation((screenDim.width - this.getWidth()) / 2, (screenDim.height - this.getHeight()) / 2);
+    if (fullscreen == false) {
+      this.setLocation((screenDim.width - this.getWidth()) / 2, (screenDim.height - this.getHeight()) / 2);
+    }
   }
   // Getting width and height
   public int getWidth() {
@@ -45,6 +54,13 @@ public class Window extends JFrame {
     fullFilePath = fullFilePath.replace("\\", "/");
     ImageIcon icon = new ImageIcon(fullFilePath);
     this.setIconImage(icon.getImage());
+  }
+  public void defineFullScreen(boolean fullscreen) {
+    this.dispose();
+    this.createWindow(fullscreen);
+  }
+  public void defineResizable(boolean resizable) {
+    this.setResizable(resizable);
   }
   public void defineVisible(boolean visible) {
     this.setVisible(visible);
