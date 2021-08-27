@@ -17,8 +17,8 @@ public class BasicExample {
 
 # Window (Basics)
 - **Window(int width, int height, boolean resizable) -> *create a Window Object***
-- Window.getWidth() -> *returns the Window's width*
-- Window.getHeight() -> *returns the Window's height*
+- Window.getWidth() -> *returns the Window's width (Width of canvas (JPanel), window itself is a few pixels wider)*
+- Window.getHeight() -> *returns the Window's height (Height of canvas (JPanel), window itself is a few pixels taller)*
 - Window.defineTitle(String title) -> *choose a Title for your Window*
 - Window.defineIcon(Sprite icon) -> *choose an Icon for your Window*
 - Window.defineVisible(boolean visible) -> *change the visibility of your Window (false by default)*
