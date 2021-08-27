@@ -16,8 +16,8 @@ public class Window extends JFrame {
   public Window(int canvasWidth, int canvasHeight, boolean resizable) {
     screenDim = Toolkit.getDefaultToolkit().getScreenSize();
     JavaPanel javaPanel = new JavaPanel(canvasWidth, canvasHeight);
+    this.setPreferredSize(new Dimension(canvasWidth, canvasHeight));
     this.add(javaPanel);
-    this.setFocusable(true);
     this.setResizable(resizable);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     panel = javaPanel;
@@ -214,6 +214,8 @@ public class Window extends JFrame {
   }
   // Render
   public void update() {
+    panel.pWidth = (int) this.getContentPane().getSize().getWidth();
+    panel.pHeight = (int) this.getContentPane().getSize().getHeight();
     panel.repaint();
   }
 }
