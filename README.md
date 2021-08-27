@@ -8,7 +8,7 @@ import wein2d.*;
 
 public class BasicExample {
   public static void main(String[] args) {
-    Window exampleWindow = new Window(500, 500, false);
+    Window exampleWindow = new Window(500, 500);
     exampleWindow.defineTitle("Basic Example");
     exampleWindow.defineVisible(true);
   }
