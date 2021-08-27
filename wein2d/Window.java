@@ -29,6 +29,13 @@ public class Window extends JFrame {
     this.pack();
     this.setLocation((screenDim.width - this.getWidth()) / 2, (screenDim.height - this.getHeight()) / 2);
   }
+  // Getting width and height
+  public int getWidth() {
+    return panel.pWidth;
+  }
+  public int getHeight() {
+    return panel.pHeight;
+  }
   // Methods for changing the Window itself
   public void defineTitle(String title) {
     this.setTitle(title);
