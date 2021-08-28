@@ -18,6 +18,12 @@ public class Sound {
       System.out.println("Error when loading a Sound: Sound at '" + fullFilePath + "' doesn't exist.");
     }
   }
+  public void setLoudness(double loudness) {
+    FloatControl gainControl = (FloatControl) sound.getControl(FloatControl.Type.MASTER_GAIN);
+    double loudnessRange = gainControl.getMaximum() - gainControl.getMinimum();
+    double gain = (loudnessRange * loudness) + gainControl.getMinimum();
+    gainControl.setValue((float) gain);
+  }
   public void play() {
     sound.start();
   }
