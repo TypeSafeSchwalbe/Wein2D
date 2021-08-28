@@ -51,6 +51,7 @@ public class BasicExample {
 # Sound
 - **Sound(String filePath) -> *create a Sound Object from a .wav file***
 - Sound.setLoudness(double loudness) -> *sets the loudness of that particular sound on a scale from 0.0 to 1.0 (0 = quitest, 1 = loudest).*
+  * Warning! This sadly only works with 16-Bit audio.
 - Sound.play() -> *play the sound*
 - Sound.loop(int times) -> *play the sound and repeat it the amount of times given (0 means it loops indefinitly)*
 - Sound.stop() -> *stops playing the sound*
