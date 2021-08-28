@@ -5,6 +5,9 @@ import java.io.File;
 
 public class Sound {
   private Clip sound;
+
+  private long pausedTime;
+
   public Sound(String filePath) {
     String fullFilePath = "";
     try {
@@ -36,5 +39,13 @@ public class Sound {
   }
   public void stop() {
     sound.stop();
+  }
+  public void pause() {
+    pausedTime = sound.getMicrosecondPosition();
+    sound.stop();
+  }
+  public void resume() {
+    sound.setMicrosecondPosition(pausedTime);
+    sound.start();
   }
 }
