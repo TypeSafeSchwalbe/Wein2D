@@ -6,7 +6,12 @@ import java.util.Arrays;
 
 public class JavaPanel extends JPanel {
   // DrawObjects
-  protected DrawObject drawObjects = new DrawObject[0];
+  protected DrawObject[] drawObjects = new DrawObject[0];
+
+  // Panel
+  protected int pWidth;
+  protected int pHeight;
+
   public JavaPanel(int width, int height) {
     pWidth = width;
     pHeight = height;
