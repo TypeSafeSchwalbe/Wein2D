@@ -10,6 +10,7 @@ public class BasicExample {
   public static void main(String[] args) {
     Window exampleWindow = new Window(500, 500);
     exampleWindow.defineTitle("Basic Example");
+    exampleWindow.drawOval(150, 150, 200, 200, 255, 125, 125);
     exampleWindow.defineVisible(true);
   }
 }
