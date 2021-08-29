@@ -4,7 +4,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.Arrays;
 import java.lang.reflect.*;
-import java.lang.Integer;
 
 public class Window extends JFrame {
   // Private Variables
@@ -142,91 +141,35 @@ public class Window extends JFrame {
     return mouseManager.mouseButtonR;
   }
   // Methods for rendering Objects
-  public void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB, boolean drawnAfterSprites) {
-    if (drawnAfterSprites == false) {
-      int drawArrayLength = panel.rects.length;
-      int[] rect = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
-      if (panel.isRect == true) {
-        panel.rects = Arrays.copyOf(panel.rects, drawArrayLength + 1);
-        panel.rects[drawArrayLength] = rect;
-      } else {
-        panel.rects[0] = rect;
-        panel.isRect = true;
-      }
-    } else {
-      int drawArrayLength2 = panel.rects2.length;
-      int[] rect2 = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
-      if (panel.isRect2 == true) {
-        panel.rects2 = Arrays.copyOf(panel.rects2, drawArrayLength2 + 1);
-        panel.rects2[drawArrayLength2] = rect2;
-      } else {
-        panel.rects2[0] = rect2;
-        panel.isRect2 = true;
-      }
-    }
+  public void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) {
+    int drawObjectsLength = panel.drawObjects.length;
+    panel.drawObjects = Arrays.copyOf(panel.drawObjects, drawObjectsLength + 1);
+    panel.drawObjects[drawObjectsLength] = new DrawObject(0, posX, posY, sizeX, sizeY, colorR, colorG, colorB);
   }
-  public void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB, boolean drawnAfterSprites) {
-    if (drawnAfterSprites == false) {
-      int drawArrayLength = panel.ovals.length;
-      int[] oval = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
-      if (panel.isOval == true) {
-        panel.ovals = Arrays.copyOf(panel.ovals, drawArrayLength + 1);
-        panel.ovals[drawArrayLength] = oval;
-      } else {
-        panel.ovals[0] = oval;
-        panel.isOval = true;
-      }
-    } else {
-      int drawArrayLength2 = panel.ovals2.length;
-      int[] oval2 = {colorR, colorG, colorB, posX, posY, sizeX, sizeY};
-      if (panel.isOval2 == true) {
-        panel.ovals2 = Arrays.copyOf(panel.ovals2, drawArrayLength2 + 1);
-        panel.ovals2[drawArrayLength2] = oval2;
-      } else {
-        panel.ovals2[0] = oval2;
-        panel.isOval2 = true;
-      }
-    }
+  public void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) {
+    int drawObjectsLength = panel.drawObjects.length;
+    panel.drawObjects = Arrays.copyOf(panel.drawObjects, drawObjectsLength + 1);
+    panel.drawObjects[drawObjectsLength] = new DrawObject(1, posX, posY, sizeX, sizeY, colorR, colorG, colorB);
   }
   public void drawSprite(Sprite sprite, int posX, int posY) {
-    int drawArrayLength1 = panel.sprites1.length;
-    int drawArrayLength2 = panel.sprites2.length;
-    int[] sprite1 = {posX, posY};
-    Image sprite2 = sprite.getImage();
-    if (panel.isSprite1 == true) {
-      try {
-        panel.sprites1 = Arrays.copyOf(panel.sprites1, drawArrayLength1 + 1);
-        panel.sprites1[drawArrayLength1] = sprite1;
-        panel.sprites2 = Arrays.copyOf(panel.sprites2, drawArrayLength2 + 1);
-        panel.sprites2[drawArrayLength2] = sprite2;
-      } catch(Exception probablyNullPointerException) {}
-    } else {
-      try {
-        panel.sprites1[0] = sprite1;
-        panel.sprites2 = Arrays.copyOf(panel.sprites2, 1);
-        panel.sprites2[0] = sprite2;
-        panel.isSprite1 = true;
-        panel.isSprite2 = true;
-      } catch(Exception probablyNullPointerException) {}
-    }
+    int drawObjectsLength = panel.drawObjects.length;
+    panel.drawObjects = Arrays.copyOf(panel.drawObjects, drawObjectsLength + 1);
+    panel.drawObjects[drawObjectsLength] = new DrawObject(2, sprite.getImage(), posX, posY);
   }
-  // Font
+  public void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) {
+    int drawObjectsLength = panel.drawObjects.length;
+    panel.drawObjects = Arrays.copyOf(panel.drawObjects, drawObjectsLength + 1);
+    panel.drawObjects[drawObjectsLength] = new DrawObject(3, sprite.getImage(), posX, posY, sizeX, sizeY);
+  }
+  public void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int sPosX, int sPosY, int sSizeX, int sSizeY) {
+    int drawObjectsLength = panel.drawObjects.length;
+    panel.drawObjects = Arrays.copyOf(panel.drawObjects, drawObjectsLength + 1);
+    panel.drawObjects[drawObjectsLength] = new DrawObject(4, sprite.getImage(), posX, posY, sizeX, sizeY, sPosX, sPosY, sSizeX, sSizeY);
+  }
   public void drawText(String content, int posX, int posY, int size, String fontFamily, int colorR, int colorG, int colorB) {
-    int drawArrayLength1 = panel.fonts1.length;
-    int drawArrayLength2 = panel.fonts2.length;
-    int[] font1 = {posX, posY, size, colorR, colorG, colorB};
-    String[] font2 = {content, fontFamily};
-    if (panel.isFont1 == true) {
-      panel.fonts1 = Arrays.copyOf(panel.fonts1, drawArrayLength1 + 1);
-      panel.fonts1[drawArrayLength1] = font1;
-      panel.fonts2 = Arrays.copyOf(panel.fonts2, drawArrayLength2 + 1);
-      panel.fonts2[drawArrayLength2] = font2;
-    } else {
-      panel.fonts1[0] = font1;
-      panel.fonts2[0] = font2;
-      panel.isFont1 = true;
-      panel.isFont2 = true;
-    }
+    int drawObjectsLength = panel.drawObjects.length;
+    panel.drawObjects = Arrays.copyOf(panel.drawObjects, drawObjectsLength + 1);
+    panel.drawObjects[drawObjectsLength] = new DrawObject(5, content, posX, posY, size, fontFamily, colorR, colorG, colorB);
   }
   // Render
   public void update() {
