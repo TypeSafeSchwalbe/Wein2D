@@ -26,11 +26,11 @@ public class BasicExample {
 - Window.defineVisible(boolean visible) -> *change the visibility of your Window (false by default)*
 
 # Window (Drawing)
-- Window.drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB, boolean drawAfterSprites) -> *draw a rectangle onto the window*
-  * drawAfterSprites -> false = gets drawn before sprites are drawn, true = gets drawn after sprites
-- Window.drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB, boolean drawAfterSprites) -> *draw an oval onto the window*
-  * drawAfterSprites -> false = gets drawn before sprites are drawn, true = gets drawn after sprites
-- Window.drawSprite(Sprite sprite, int posX, int posY) -> *draw sprite onto the window*
+- Window.drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) -> *draw a rectangle onto the window*
+- Window.drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) -> *draw an oval onto the window*
+- Window.drawSprite(Sprite sprite, int posX, int posY) -> *draw sprite onto the window (at size of source image)*
+- Window.drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) -> *draw sprite onto the window (at specified size)*
+- Window.drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int imgPosX, int imgPosY, int imgSizeX, int imgSizeY) -> *draw a specific part of a sprite onto the window (at specified size)*
 - Window.drawText(String content, int posX, int posY, int size, String fontFamily, int colorR, int colorG, int colorB) -> *draw Text onto the window*
 - Window.update() -> *update the window (needed for the drawing methods to take effect)*
 
