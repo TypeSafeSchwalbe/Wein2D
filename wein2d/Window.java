@@ -169,7 +169,7 @@ public class Window extends JFrame {
   public void drawText(String content, int posX, int posY, int size, String fontFamily, int colorR, int colorG, int colorB) {
     int drawObjectsLength = panel.drawObjects.length;
     panel.drawObjects = Arrays.copyOf(panel.drawObjects, drawObjectsLength + 1);
-    panel.drawObjects[drawObjectsLength] = new DrawObject(5, content, posX, posY, size, fontFamily, colorR, colorG, colorB);
+    panel.drawObjects[drawObjectsLength] = new DrawObject(5, content, posX, posY + size, size, fontFamily, colorR, colorG, colorB);
   }
   // Render
   public void update() {
