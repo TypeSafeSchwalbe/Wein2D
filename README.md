@@ -17,6 +17,7 @@ public class BasicExample {
 
 # Window (Basics)
 - **Window(int width, int height) -> *create a Window Object***
+
 - Window.getWidth() -> *returns the Window's width (Width of canvas (JPanel), window itself is a few pixels wider)*
 - Window.getHeight() -> *returns the Window's height (Height of canvas (JPanel), window itself is a few pixels taller)*
 - Window.defineTitle(String title) -> *choose a Title for your Window*
@@ -27,6 +28,7 @@ public class BasicExample {
 
 # Window (Drawing)
 - Window.drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) -> *draw a rectangle onto the window*
+
 - Window.drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) -> *draw an oval onto the window*
 - Window.drawSprite(Sprite sprite, int posX, int posY) -> *draw sprite onto the window (at size of source image)*
 - Window.drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) -> *draw sprite onto the window (at specified size)*
@@ -36,6 +38,7 @@ public class BasicExample {
 
 # Window (Input)
 - Window.getMousePosX() -> *returns the position of the mouse on the X axis (int)*
+
 - Window.getMousePosY() -> *returns the position of the mouse on the Y axis (int)*
 - Window.getMouseButtonL() -> *returns the state of the left mouse button (boolean)*
 - Window.getMouseButtonR() -> *returns the state of the right mouse button (boolean)*
@@ -44,12 +47,14 @@ public class BasicExample {
 
 # Sprite
 - **Sprite(String filePath) -> *create a Sprite Object from a file for later drawing***
+
 - Sprite.getImage() -> *returns the Sprite as an java.awt.Image (import needed).*
 - Sprite.getImage().getWidth(null) -> *returns the Sprite's width.*
 - Sprite.getImage().getHeight(null) -> *returns the Sprite's height.*
 
 # Sound
 - **Sound(String filePath) -> *create a Sound Object from a .wav file***
+
 - Sound.setLoudness(double loudness) -> *sets the loudness of that particular sound on a scale from 0.0 to 1.0 (0 = quitest, 1 = loudest).*
   * Warning! This can sadly sometimes only works with 16-Bit audio.
 - Sound.play() -> *play the sound*
