@@ -1,5 +1,5 @@
 # Wein2D
-...is very simple Graphics Library for Java built on top of the java.awt and javax.swing libraries. It has support for creating multiple Windows, drawing simple shapes, images and text to these Windows, detecting input from keyboard and mouse and playing sounds.
+...is very simple Graphics Library for Java built on top of the java.awt and javax.swing packages. It has support for creating multiple Windows, drawing simple shapes, images and text to these Windows, detecting input from keyboard and mouse and playing sounds.
 
 # Basic Example
 Here is an example for a simple Window:
@@ -10,11 +10,11 @@ public class BasicExample {
   public static void main(String[] args) {
     Window exampleWindow = new Window(500, 500);
     exampleWindow.defineTitle("Basic Example");
-    exampleWindow.drawOval(150, 150, 200, 200, 255, 125, 125);
     exampleWindow.defineVisible(true);
   }
 }
 ```
+Info: For rectangles, images and the like to render a gameloop is required.
 
 # Window (Basics)
 - **Window(int width, int height) -> *create a Window Object***
