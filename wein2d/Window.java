@@ -159,7 +159,7 @@ public class Window extends JFrame {
   public void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) {
     int drawObjectsLength = panel.drawObjects.length;
     panel.drawObjects = Arrays.copyOf(panel.drawObjects, drawObjectsLength + 1);
-    panel.drawObjects[drawObjectsLength] = new DrawObject(3, sprite.getImage(), posX, posY, posX + sizeX, posY + sizeY);
+    panel.drawObjects[drawObjectsLength] = new DrawObject(3, sprite.getImage(), posX, posY, sizeX, sizeY);
   }
   public void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int sPosX, int sPosY, int sSizeX, int sSizeY) {
     int drawObjectsLength = panel.drawObjects.length;
