@@ -59,6 +59,7 @@ Methods:
  - void startGameloop() >> starts the gameloop if a Gameloop-object is added
  - void setFPS(int fps) >> configures the gameloop to target the passed fps if a Gameloop-object is added
 - Drawing stuff on screen
+ - void fill(int colorR, int colorG, int colorB) >> fills the screen with the specified color (useful for screen clearing)
  - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws a rectangle on screen after 'redraw()' is called
  - void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws an oval on screen after 'redraw()' is called
  - void drawSprite(Sprite sprite, int posX, int posY) >> draws a sprite on screen after 'redraw()' is called
