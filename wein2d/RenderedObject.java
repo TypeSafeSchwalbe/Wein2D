@@ -16,6 +16,7 @@ class RenderedObject
      // 3 -> Sprite (scaled)
      // 4 -> Sprite (scaled and cropped)
      // 5 -> Text
+     // 6 -> fill window
      /////////////////////////////////////////
     protected int type = 0;
 
@@ -24,9 +25,9 @@ class RenderedObject
     protected int sizeX; // Rectangle, Oval, ScaledSprite, CroppedScaledSprite
     protected int sizeY; // Rectangle, Oval, ScaledSprite, CroppedScaledSprite
     protected Image image; // Sprite, ScaledSprite, CroppedScaledSprite
-    protected int colorR; // Rectangle, Oval, Text
-    protected int colorG; // Rectangle, Oval, Text
-    protected int colorB; // Rectangle, Oval, Text
+    protected int colorR; // Rectangle, Oval, Text, Fill
+    protected int colorG; // Rectangle, Oval, Text, Fill
+    protected int colorB; // Rectangle, Oval, Text, Fill
     protected int sourcePosX; // CroppedScaledSprite
     protected int sourcePosY; // CroppedScaledSprite
     protected int sourceSizeX; // CroppedScaledSprite
@@ -87,8 +88,15 @@ class RenderedObject
       colorG = givenColorG;
       colorB = givenColorB;
     }
+    RenderedObject(int givenType, int givenColorR, int givenColorG, int givenColorB)
+    {
+        type = givenType;
+        colorR = givenColorR;
+        colorG = givenColorG;
+        colorB = givenColorB;
+    }
     // draw ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    protected void draw(Graphics2D g)
+    protected void draw(Graphics2D g, int windowSizeX, int windowSizeY)
     {
         switch(type)
         {
@@ -113,6 +121,10 @@ class RenderedObject
                 g.setPaint(new Color(colorR, colorG, colorB));
                 g.setFont(new Font(fontFamily, Font.PLAIN, fontSize));
                 g.drawString(content, posX, posY);
+                break;
+            case 6:
+                g.setPaint(new Color(colorR, colorG, colorB));
+                g.fillRect(0, 0, windowSizeX, windowSizeY);
                 break;
         }
     }
