@@ -32,7 +32,7 @@ class Canvas extends JPanel
         // loop through the list of rendered objects and draw it
         for (RenderedObject renderedObject: renderedObjects)
         {
-            renderedObject.draw(g);
+            renderedObject.draw(g, sizeX, sizeY);
         }
         // clear list of rendered objects
         renderedObjects = new RenderedObject[0];
