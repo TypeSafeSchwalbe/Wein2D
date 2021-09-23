@@ -43,37 +43,37 @@ Window(int width, int height)
 
 Methods:
 - Setters
- - void setVisible(boolean visible) >> defines if the window is visible
- - void setSize(int width, int height) >> sets the size of the window
- - void setTitle(String title) >> sets the title of the window
- - void setIcon(String filePath)  >> sets the window's icon
- - void setResizable(boolean resizable) >> defines if the window can be resized
- - void setFullScreen(boolean fullscreen) >> defines if the window takes up the entire screen
+   - void setVisible(boolean visible) >> defines if the window is visible
+   - void setSize(int width, int height) >> sets the size of the window
+   - void setTitle(String title) >> sets the title of the window
+   - void setIcon(String filePath)  >> sets the window's icon
+   - void setResizable(boolean resizable) >> defines if the window can be resized
+   - void setFullScreen(boolean fullscreen) >> defines if the window takes up the entire screen
 - Getters
- - int getWidth() >> get the width of the window in pixels
- - int getHeight() >> get the height of the window in pixels
- - boolean getVisible() >> get if the window is visible
- - int getFPS() >> returns the FPS the gameloop is configured to (returns -1 if no Gameloop-object added)
+   - int getWidth() >> get the width of the window in pixels
+   - int getHeight() >> get the height of the window in pixels
+   - boolean getVisible() >> get if the window is visible
+   - int getFPS() >> returns the FPS the gameloop is configured to (returns -1 if no Gameloop-object added)
 - Gameloop
- - void addGameloop(Gameloop gameloop) >> add an object to the window that implements the "Gameloop" interface
- - void startGameloop() >> starts the gameloop if a Gameloop-object is added
- - void setFPS(int fps) >> configures the gameloop to target the passed fps if a Gameloop-object is added
+   - void addGameloop(Gameloop gameloop) >> add an object to the window that implements the "Gameloop" interface
+   - void startGameloop() >> starts the gameloop if a Gameloop-object is added
+   - void setFPS(int fps) >> configures the gameloop to target the passed fps if a Gameloop-object is added
 - Drawing stuff on screen
- - void fill(int colorR, int colorG, int colorB) >> fills the screen with the specified color (useful for screen clearing)
- - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws a rectangle on screen after 'redraw()' is called
- - void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws an oval on screen after 'redraw()' is called
- - void drawSprite(Sprite sprite, int posX, int posY) >> draws a sprite on screen after 'redraw()' is called
- - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) >> draws a sprite on screen after 'redraw()' is called
- - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY) >> draws a sprite on screen after 'redraw()' is called
- - void drawText(String content, int posX, int posY, int size, String fontFamily, int colorR, int colorG, int colorB) >> draws text on screen after 'redraw()' is called
- - void redraw() >> needed for your drawing to happen; call it once per frame
+   - void fill(int colorR, int colorG, int colorB) >> fills the screen with the specified color (useful for screen clearing)
+   - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws a rectangle on screen after 'redraw()' is called
+   - void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws an oval on screen after 'redraw()' is called
+   - void drawSprite(Sprite sprite, int posX, int posY) >> draws a sprite on screen after 'redraw()' is called
+   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) >> draws a sprite on screen after 'redraw()' is called
+   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY) >> draws a sprite on screen after 'redraw()' is called
+   - void drawText(String content, int posX, int posY, int size, String fontFamily, int colorR, int colorG, int colorB) >> draws text on screen after 'redraw()' is called
+   - void redraw() >> needed for your drawing to happen; call it once per frame
 - Input
- - int getMouseX() >> returns the mouse's position on the x-axis
- - int getMouseY() >> returns the mouse's position on the y-axis
- - boolean getMouseL() >> returns if the mouse's left button is being pressed
- - boolean getMouseR() >> returns if the mouse's right button is being pressed
- - void getKey(String keyID) >> returns if a certain key on the keyboard is being pressed
-   - key ID's: "ctrl", "shift", "space", "backspace", "enter", "alt", "arrUp", "arrDown", "arrLeft", "arrRight", "keyA", "keyB", "keyC", ... , "keyY", "keyZ", "key0", "key1", "key2", ... , "key9", "keyF1", "keyF2", "keyF3", ... , "keyF12"
+   - int getMouseX() >> returns the mouse's position on the x-axis
+   - int getMouseY() >> returns the mouse's position on the y-axis
+   - boolean getMouseL() >> returns if the mouse's left button is being pressed
+   - boolean getMouseR() >> returns if the mouse's right button is being pressed
+   - void getKey(String keyID) >> returns if a certain key on the keyboard is being pressed
+       - key ID's: "ctrl", "shift", "space", "backspace", "enter", "alt", "arrUp", "arrDown", "arrLeft", "arrRight", "keyA", "keyB", "keyC", ... , "keyY", "keyZ", "key0", "key1", "key2", ... , "key9", "keyF1", "keyF2", "keyF3", ... , "keyF12"
 
 ## Sprite
 Constructor:  
@@ -101,17 +101,17 @@ Methods:
 ## Collision
 Methods:
  - static boolean lineTouchingRect(int lineX, int lineY, int lineLength, int rectPosX, int rectPosY, int rectSizeX, int rectSizeY)
-   - returns 'false' if line doesn't touch specified rectangle
-   - returns 'true' if line touches specified rectangle
+     - returns 'false' if line doesn't touch specified rectangle
+     - returns 'true' if line touches specified rectangle
  - static boolean rectTouchingRect(int rect1PosX, int rect1PosY, int rect1SizeX, int rect1SizeY, int rect2PosX, int rect2PosY, int rect2SizeX, int rect2SizeY)
-   - returns 'false' if rectangle doesn't touch specified rectangle
-   - returns 'true' if rectangle touches specified rectangle
+     - returns 'false' if rectangle doesn't touch specified rectangle
+     - returns 'true' if rectangle touches specified rectangle
  - static boolean pointInsideRect(int pointX, int pointY, int rectPosX, int rectPosY, int rectSizeX, int rectSizeY)
-   - returns 'false' if point isn't inside specified rectangle
-   - returns 'true' if point is inside specified rectangle
+     - returns 'false' if point isn't inside specified rectangle
+     - returns 'true' if point is inside specified rectangle
  - static boolean lineInsideRect(int lineX, int lineY, int lineLength, int rectPosX, int rectPosY, int rectSizeX, int rectSizeY)
-   - returns 'false' if line isn't inside specified rectangle
-   - returns 'true' if line is inside specified rectangle
+     - returns 'false' if line isn't inside specified rectangle
+     - returns 'true' if line is inside specified rectangle
  - static boolean rectInsideRect(int rect1PosX, int rect1PosY, int rect1SizeX, int rect1SizeY, int rect2PosX, int rect2PosY, int rect2SizeX, int rect2SizeY)
-   - returns 'false' if rectangle isn't inside specified rectangle
-   - returns 'true' if rectangle is inside specified rectangle
+     - returns 'false' if rectangle isn't inside specified rectangle
+     - returns 'true' if rectangle is inside specified rectangle
