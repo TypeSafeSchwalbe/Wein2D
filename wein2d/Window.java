@@ -227,6 +227,12 @@ public class Window
         jFrame.canvas.renderedObjects = Arrays.copyOf(jFrame.canvas.renderedObjects, renderedObjectsLength + 1);
         jFrame.canvas.renderedObjects[renderedObjectsLength] = new RenderedObject(5, content, posX, posY + size, size, fontFamily, colorR, colorG, colorB);
     }
+    public void fill(int colorR, int colorG, int colorB)
+    {
+        int renderedObjectsLength = jFrame.canvas.renderedObjects.length;
+        jFrame.canvas.renderedObjects = Arrays.copyOf(jFrame.canvas.renderedObjects, renderedObjectsLength + 1);
+        jFrame.canvas.renderedObjects[renderedObjectsLength] = new RenderedObject(6, colorR, colorG, colorB);
+    }
     // redraw ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void redraw() {
         jFrame.canvas.sizeX = (int) jFrame.getContentPane().getSize().getWidth();
