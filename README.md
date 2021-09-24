@@ -87,10 +87,12 @@ Sound(String filePath)
 
 Methods:
  - void play() >> plays the sound
- - void loop(int times) >> loops the sound (-1 for infinite looping)
+ - void setVolume(double volume) >> changes the sound's loudness
+     - 0.0 -> not audible at all
+     - 0.5 -> 50% loudness
+     - 1.0 -> max (100%) loudness
+ - void loop(boolean loopInfinitly) >> loops the sound
  - void stop() >> stops playback of the sound
- - void pause() >> pauses playback of the sound
- - void resume() >> resumes playback of the sound
 
 ## Gameloop
  -> interface  
