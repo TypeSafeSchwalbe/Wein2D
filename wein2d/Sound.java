@@ -1,13 +1,14 @@
 package wein2d;
 
+import java.io.*;
 import javax.sound.sampled.*;
-import java.io.File;
 
 public class Sound
 {
     // Variables ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private Clip sound;
-    private long pausedTime;
+    private FloatControl volume;
+    float range;
     // Constructor ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public Sound(String filePath)
     {
@@ -15,24 +16,28 @@ public class Sound
         String fullFilePath = System.getProperty("user.dir") + "/" + filePath;
         // replace all leftover backslashes with foreward slashes
         fullFilePath = fullFilePath.replace("\\", "/");
-        // print if the image does even exist
+        // print if the sound file does even exist
         if (!(new File(fullFilePath).exists()))
         {
           System.out.println("Error when loading a sound: sound at '" + fullFilePath + "' doesn't exist.");
         }
+        // load Clip
         try
         {
-            // load file into audioInputStream
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(fullFilePath).getAbsoluteFile());
-            // create Clip and load audioInputStream into it
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(new File("./testSound.wav").getAbsoluteFile());
             sound = AudioSystem.getClip();
-            sound.open(audioInputStream);
+    		sound.open(audioStream);
         }
-        catch (Exception fileLoadingException)
-        {
-            // print if error
-            System.out.println("Error: Something went wrong when loading the Sound at '" + fullFilePath + "'.");
-        }
+        catch(Exception e)
+        {}
+        // set up volume control
+        volume = (FloatControl) sound.getControl(FloatControl.Type.MASTER_GAIN);
+        range = volume.getMaximum() - volume.getMinimum();
+    }
+    // Set Loudness ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void setVolume(double loudness)
+    {
+        volume.setValue((float) (range * loudness) + volume.getMinimum());
     }
     // Play ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void play()
@@ -40,32 +45,20 @@ public class Sound
         sound.start();
     }
     // Loop ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void loop(int times)
+    public void loop(boolean looping)
     {
-        if (times == 0)
+        if (looping)
         {
             sound.loop(Clip.LOOP_CONTINUOUSLY);
         }
-        else if (times > 0)
+        else
         {
-            sound.loop(times);
+            sound.loop(0);
         }
     }
     // Stop ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void stop()
     {
         sound.stop();
-    }
-    // Pause ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void pause()
-    {
-        pausedTime = sound.getMicrosecondPosition();
-        sound.stop();
-    }
-    // Resume ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void resume()
-    {
-        sound.setMicrosecondPosition(pausedTime);
-        sound.start();
     }
 }
