@@ -2,12 +2,13 @@ package wein2d;
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.ArrayList;
 
 class Canvas extends JPanel
 {
     // Variables ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // References
-    protected RenderedObject[] renderedObjects = new RenderedObject[0];
+    protected ArrayList<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
     // Primitive
     protected int sizeX;
     protected int sizeY;
@@ -30,11 +31,11 @@ class Canvas extends JPanel
         // get Graphics2D
         Graphics2D g = (Graphics2D) givenG;
         // loop through the list of rendered objects and draw it
-        for (RenderedObject renderedObject: renderedObjects)
+        for (int object = 0; object < renderedObjects.size(); object++)
         {
-            renderedObject.draw(g, sizeX, sizeY);
+            renderedObjects.get(object).draw(g, sizeX, sizeY);
         }
         // clear list of rendered objects
-        renderedObjects = new RenderedObject[0];
+        renderedObjects.clear();
     }
 }

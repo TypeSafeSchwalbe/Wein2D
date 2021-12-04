@@ -193,45 +193,31 @@ public class Window
     // draw ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB)
     {
-        int renderedObjectsLength = jFrame.canvas.renderedObjects.length;
-        jFrame.canvas.renderedObjects = Arrays.copyOf(jFrame.canvas.renderedObjects, renderedObjectsLength + 1);
-        jFrame.canvas.renderedObjects[renderedObjectsLength] = new RenderedObject(0, posX, posY, sizeX, sizeY, colorR, colorG, colorB);
+        jFrame.canvas.renderedObjects.add(new RenderedObject(0, posX, posY, sizeX, sizeY, colorR, colorG, colorB));
     }
     public void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB)
     {
-        int renderedObjectsLength = jFrame.canvas.renderedObjects.length;
-        jFrame.canvas.renderedObjects = Arrays.copyOf(jFrame.canvas.renderedObjects, renderedObjectsLength + 1);
-        jFrame.canvas.renderedObjects[renderedObjectsLength] = new RenderedObject(1, posX, posY, sizeX, sizeY, colorR, colorG, colorB);
+        jFrame.canvas.renderedObjects.add(new RenderedObject(1, posX, posY, sizeX, sizeY, colorR, colorG, colorB));
     }
     public void drawSprite(Sprite sprite, int posX, int posY)
     {
-        int renderedObjectsLength = jFrame.canvas.renderedObjects.length;
-        jFrame.canvas.renderedObjects = Arrays.copyOf(jFrame.canvas.renderedObjects, renderedObjectsLength + 1);
-        jFrame.canvas.renderedObjects[renderedObjectsLength] = new RenderedObject(2, sprite.getImage(), posX, posY);
+        jFrame.canvas.renderedObjects.add(new RenderedObject(2, sprite.getImage(), posX, posY));
     }
     public void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY)
     {
-        int renderedObjectsLength = jFrame.canvas.renderedObjects.length;
-        jFrame.canvas.renderedObjects = Arrays.copyOf(jFrame.canvas.renderedObjects, renderedObjectsLength + 1);
-        jFrame.canvas.renderedObjects[renderedObjectsLength] = new RenderedObject(3, sprite.getImage(), posX, posY, sizeX, sizeY);
+        jFrame.canvas.renderedObjects.add(new RenderedObject(3, sprite.getImage(), posX, posY, sizeX, sizeY));
     }
     public void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int sPosX, int sPosY, int sSizeX, int sSizeY)
     {
-        int renderedObjectsLength = jFrame.canvas.renderedObjects.length;
-        jFrame.canvas.renderedObjects = Arrays.copyOf(jFrame.canvas.renderedObjects, renderedObjectsLength + 1);
-        jFrame.canvas.renderedObjects[renderedObjectsLength] = new RenderedObject(4, sprite.getImage(), posX, posY, posX + sizeX, posY + sizeY, sPosX, sPosY, sPosX + sSizeX, sPosY + sSizeY);
+        jFrame.canvas.renderedObjects.add(new RenderedObject(4, sprite.getImage(), posX, posY, posX + sizeX, posY + sizeY, sPosX, sPosY, sPosX + sSizeX, sPosY + sSizeY));
     }
     public void drawText(String content, int posX, int posY, int size, String fontFamily, int colorR, int colorG, int colorB)
     {
-        int renderedObjectsLength = jFrame.canvas.renderedObjects.length;
-        jFrame.canvas.renderedObjects = Arrays.copyOf(jFrame.canvas.renderedObjects, renderedObjectsLength + 1);
-        jFrame.canvas.renderedObjects[renderedObjectsLength] = new RenderedObject(5, content, posX, posY + size, size, fontFamily, colorR, colorG, colorB);
+        jFrame.canvas.renderedObjects.add(new RenderedObject(5, content, posX, posY + size, size, fontFamily, colorR, colorG, colorB));
     }
     public void fill(int colorR, int colorG, int colorB)
     {
-        int renderedObjectsLength = jFrame.canvas.renderedObjects.length;
-        jFrame.canvas.renderedObjects = Arrays.copyOf(jFrame.canvas.renderedObjects, renderedObjectsLength + 1);
-        jFrame.canvas.renderedObjects[renderedObjectsLength] = new RenderedObject(6, colorR, colorG, colorB);
+        jFrame.canvas.renderedObjects.add(new RenderedObject(6, colorR, colorG, colorB));
     }
     // redraw ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void redraw() {
