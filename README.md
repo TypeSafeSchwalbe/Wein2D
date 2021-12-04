@@ -100,7 +100,7 @@ Methods:
 -> interface  
 
 Methods:
-  - void onFrame() >> gets called every frame after the object, that implements it, has been passed to a window object via 'addGameloop(Gameloop gameloop)'
+  - void onFrame(double deltaTime) >> gets called every frame after the object, that implements it, has been passed to a window object via 'addGameloop(Gameloop gameloop)'
 
 ## Collision
 Methods:
