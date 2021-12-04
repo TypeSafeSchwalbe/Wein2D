@@ -6,7 +6,6 @@ class GameloopLogic
     private Gameloop gameloop;
     protected int fps = 60;
     private boolean running;
-    private long lastFrameTime;
     // Constructor ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     GameloopLogic(Gameloop givenGameloop) {
         gameloop = givenGameloop;
@@ -28,8 +27,7 @@ class GameloopLogic
             // get Time at start of Frame
             frameStartTime = System.currentTimeMillis();
             // call methods
-            gameloop.onFrame((double) ((System.currentTimeMillis() - (double) lastFrameTime) * 1000));
-            lastFrameTime = System.currentTimeMillis();
+            gameloop.onFrame();
             // calculate amount of sleep
             frameTime = System.currentTimeMillis() - frameStartTime;
             waitTime = 1000 / fps - frameTime;
