@@ -24,7 +24,7 @@ public class ExampleProgram implements Gameloop
         window.setVisible(true); // set the window to visible
         window.startGameloop(); // start calling 'onFrame()' once per frame
     }
-    public void onFrame() { // gets called once per frame
+    public void onFrame(double deltaTime) { // gets called once per frame
         ballX += 3; // move the ball
         if (ballX > 848) ballX = -50; // teleport it to the other side if it hits the edge
         window.fill(255, 255, 255); // fill the screen with white
