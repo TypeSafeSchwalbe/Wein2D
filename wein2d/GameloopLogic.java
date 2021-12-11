@@ -32,11 +32,12 @@ class GameloopLogic
             frameTime = System.currentTimeMillis() - frameStartTime;
             waitTime = 1000 / fps - frameTime;
             // sleep
-            try
+            if(waitTime > 0)
             {
-                Thread.sleep(waitTime);
+                try {
+                    Thread.sleep(waitTime);
+                } catch (Exception e) { e.printStackTrace(); }
             }
-            catch (Exception e) { e.printStackTrace(); }
         }
     }
 }
