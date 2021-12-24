@@ -63,7 +63,9 @@ Methods:
 - Drawing stuff on screen
    - void fill(int colorR, int colorG, int colorB) >> fills the screen with the specified color (useful for screen clearing)
    - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws a rectangle on screen after 'redraw()' is called
+   - void drawRect(int posX, int posY, int sizeX, int sizeY, int alpha, int colorR, int colorG, int colorB) >> draws a rectangle on screen after 'redraw()' is called
    - void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws an oval on screen after 'redraw()' is called
+   - void drawOval(int posX, int posY, int sizeX, int sizeY, int alpha, int colorR, int colorG, int colorB) >> draws an oval on screen after 'redraw()' is called
    - void drawSprite(Sprite sprite, int posX, int posY) >> draws a sprite on screen after 'redraw()' is called
    - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) >> draws a sprite on screen after 'redraw()' is called
    - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY) >> draws a sprite on screen after 'redraw()' is called
