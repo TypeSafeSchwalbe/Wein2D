@@ -17,6 +17,8 @@ class RenderedObject
      // 4 -> Sprite (scaled and cropped)
      // 5 -> Text
      // 6 -> fill window
+     // 7 -> Rectangle with Alpha
+     // 8 -> Oval with Alpha
      /////////////////////////////////////////
     protected int type = 0;
 
@@ -35,6 +37,7 @@ class RenderedObject
     protected String content; // Text
     protected String fontFamily; // Text
     protected int fontSize; // Text
+    protected float alpha; // Rect || oval with alpha
     // Constructors ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     RenderedObject(int givenType, int givenPosX, int givenPosY, int givenSizeX, int givenSizeY, int givenColorR, int givenColorG, int givenColorB) // rectangle || oval
     {
@@ -95,6 +98,18 @@ class RenderedObject
         colorG = givenColorG;
         colorB = givenColorB;
     }
+    RenderedObject(int givenType, int givenPosX, int givenPosY, int givenSizeX, int givenSizeY, int givenAlpha, int givenColorR, int givenColorG, int givenColorB) // rectangle || oval with alpha
+    {
+      type = givenType;
+      posX = givenPosX;
+      posY = givenPosY;
+      sizeX = givenSizeX;
+      sizeY = givenSizeY;
+      alpha = ((float) givenAlpha / (float) 255);
+      colorR = givenColorR;
+      colorG = givenColorG;
+      colorB = givenColorB;
+    }
     // draw ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     protected void draw(Graphics2D g, int windowSizeX, int windowSizeY)
     {
@@ -125,6 +140,16 @@ class RenderedObject
             case 6:
                 g.setPaint(new Color(colorR, colorG, colorB));
                 g.fillRect(0, 0, windowSizeX, windowSizeY);
+                break;
+            case 7:
+                g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
+                g.setPaint(new Color(colorR, colorG, colorB));
+                g.fillRect(posX, posY, sizeX, sizeY);
+                break;
+            case 8:
+                g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
+                g.setPaint(new Color(colorR, colorG, colorB));
+                g.fillOval(posX, posY, sizeX, sizeY);
                 break;
         }
     }

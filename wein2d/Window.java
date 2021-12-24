@@ -195,9 +195,17 @@ public class Window
     {
         jFrame.canvas.renderedObjects.add(new RenderedObject(0, posX, posY, sizeX, sizeY, colorR, colorG, colorB));
     }
+    public void drawRect(int posX, int posY, int sizeX, int sizeY, int alpha, int colorR, int colorG, int colorB)
+    {
+        jFrame.canvas.renderedObjects.add(new RenderedObject(7, posX, posY, sizeX, sizeY, alpha, colorR, colorG, colorB));
+    }
     public void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB)
     {
         jFrame.canvas.renderedObjects.add(new RenderedObject(1, posX, posY, sizeX, sizeY, colorR, colorG, colorB));
+    }
+    public void drawOval(int posX, int posY, int sizeX, int sizeY, int alpha, int colorR, int colorG, int colorB)
+    {
+        jFrame.canvas.renderedObjects.add(new RenderedObject(8, posX, posY, sizeX, sizeY, alpha, colorR, colorG, colorB));
     }
     public void drawSprite(Sprite sprite, int posX, int posY)
     {
