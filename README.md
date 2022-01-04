@@ -61,16 +61,25 @@ Methods:
    - void startGameloop() >> starts the gameloop if a Gameloop-object is added
    - void setFPS(int fps) >> configures the gameloop to target the passed fps if a Gameloop-object is added
 - Drawing stuff on screen
-   - void fill(int colorR, int colorG, int colorB) >> fills the screen with the specified color (useful for screen clearing)
-   - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws a rectangle on screen after 'redraw()' is called
-   - void drawRect(int posX, int posY, int sizeX, int sizeY, int alpha, int colorR, int colorG, int colorB) >> draws a rectangle on screen after 'redraw()' is called
-   - void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draws an oval on screen after 'redraw()' is called
-   - void drawOval(int posX, int posY, int sizeX, int sizeY, int alpha, int colorR, int colorG, int colorB) >> draws an oval on screen after 'redraw()' is called
-   - void drawSprite(Sprite sprite, int posX, int posY) >> draws a sprite on screen after 'redraw()' is called
-   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) >> draws a sprite on screen after 'redraw()' is called
-   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY) >> draws a sprite on screen after 'redraw()' is called
-   - void drawText(String content, int posX, int posY, int size, String fontFamily, int colorR, int colorG, int colorB) >> draws text on screen after 'redraw()' is called
-   - void redraw() >> needed for your drawing to happen; call it once per frame
+   - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draw rectangle
+   - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorA, int colorR, int colorG, int colorB) >> draw rectangle (with alpha)
+   - void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draw oval
+   - void drawOval(int posX, int posY, int sizeX, int sizeY, int colorA, int colorR, int colorG, int colorB) >> draw oval (with alpha)
+   - void drawSprite(Sprite sprite, int posX, int posY) >> draw sprite
+   - void drawSprite(Sprite sprite, int posX, int posY, int colorA) >> draw sprite (with alpha)
+   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) >> draw sprite (specified size)
+   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int colorA) >> draw sprite (specified size, with alpha)
+   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY) >> draw sprite (specified size and source size)
+   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY, int colorA) >> draw sprite (specified size and source size, with alpha)
+   - void drawText(String content, int posX, int posY, int fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text
+   - void drawText(String content, int posX, int posY, int fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with alpha)
+   - void drawText(String content, int posX, int posY, String positioning, int fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text (with positioning)
+        - positioning may be: "LEFT", "CENTER", "RIGHT"
+   - void drawText(String content, int posX, int posY, String positioning, int fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with positioning, with alpha)
+        - positioning may be: "LEFT", "CENTER", "RIGHT"
+   - void fill(int colorR, int colorG, int colorB) >> fill window with color
+   - void fill(int colorA, int colorR, int colorG, int colorB) >> fill window with color (with alpha)
+   - void redraw() >> needed for your drawing to happen; call it once per frame (not needed if library gameloop used)
 - Input
    - int getMouseX() >> returns the mouse's position on the x-axis
    - int getMouseY() >> returns the mouse's position on the y-axis
