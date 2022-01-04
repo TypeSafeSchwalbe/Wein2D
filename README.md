@@ -79,7 +79,7 @@ Methods:
         - positioning may be: "LEFT", "CENTER", "RIGHT"
    - void fill(int colorR, int colorG, int colorB) >> fill window with color
    - void fill(int colorA, int colorR, int colorG, int colorB) >> fill window with color (with alpha)
-   - void redraw() >> needed for your drawing to happen; call it once per frame (not needed if library gameloop used)
+   - void redraw() >> needed for your drawing to happen; call it once per frame
 - Input
    - int getMouseX() >> returns the mouse's position on the x-axis
    - int getMouseY() >> returns the mouse's position on the y-axis
