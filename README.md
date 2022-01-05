@@ -2,7 +2,7 @@
 Wein2D is a simple Graphics Library built on top of the javax.swing and java.awt libraries. It's primarily made for making games. It supports / has:
 - creating the game/program's window and managing it
 - adding your own 'onFrame' method to these windows to get called every frame
-- drawing simple shapes and images to these windows
+- drawing simple shapes and images to these windows, including text
 - getting mouse and keyboard input from your user
 - playing sounds
 - simple methods for detecting collision
@@ -12,6 +12,8 @@ There is also a stripped version for android development, [Wein2DAndroid](https:
 ## Code example
 This is a simple Example for a program (ExampleProgram.java):
 ![ExampleProgram.java](https://github.com/devtaube/wein2d/blob/main/markdown_images/exampleprogramclass.png?raw=true)
+
+The code is also located in "./testapp".
 
 # Documentation
 This is a list of all features, classes and methods.
