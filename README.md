@@ -71,21 +71,23 @@ Methods:
 
 ## Sprite
 Constructors:  
-Sprite(String filePath)
--> creates and loads the Sprite from the given path
-Sprite(java.io.File file)
--> creates and loads the sprite from the given file object
-Sprite(java.awt.Image image)
--> creates the sprite from the given image object
+
+Sprite(String filePath)  
+-> creates and loads the Sprite from the given path  
+Sprite(java.io.File file)  
+-> creates and loads the sprite from the given file object  
+Sprite(java.awt.Image image)  
+-> creates the sprite from the given image object  
 
 ## Sound
-Constructor:  
-Sound(String filePath)
--> creates and loads the sound from the given path
-Sound(java.io.File file)
--> creates and loads the sound from the given file object
-Sound(javax.sound.sampled.Clip clip)
--> creates the sound from the given clip object
+Constructors:  
+
+Sound(String filePath)  
+-> creates and loads the sound from the given path  
+Sound(java.io.File file)  
+-> creates and loads the sound from the given file object  
+Sound(javax.sound.sampled.Clip clip)  
+-> creates the sound from the given clip object  
 
 Methods:
  - void play() >> plays the sound
