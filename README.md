@@ -70,14 +70,22 @@ Methods:
        - key ID's: "ctrl", "shift", "space", "backspace", "enter", "alt", "arrUp", "arrDown", "arrLeft", "arrRight", "keyA", "keyB", "keyC", ... , "keyY", "keyZ", "key0", "key1", "key2", ... , "key9", "keyF1", "keyF2", "keyF3", ... , "keyF12"
 
 ## Sprite
-Constructor:  
+Constructors:  
 Sprite(String filePath)
--> creates and loads the Sprite from the given Path
+-> creates and loads the Sprite from the given path
+Sprite(java.io.File file)
+-> creates and loads the sprite from the given file object
+Sprite(java.awt.Image image)
+-> creates the sprite from the given image object
 
 ## Sound
 Constructor:  
 Sound(String filePath)
--> creates and loads the Sound from the given Path
+-> creates and loads the sound from the given path
+Sound(java.io.File file)
+-> creates and loads the sound from the given file object
+Sound(javax.sound.sampled.Clip clip)
+-> creates the sound from the given clip object
 
 Methods:
  - void play() >> plays the sound
