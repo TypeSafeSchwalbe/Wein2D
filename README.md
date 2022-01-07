@@ -40,7 +40,7 @@ Methods:
 - Gameloop
    - void addGameloop(Gameloop gameloop) >> add an object to the window that implements the "Gameloop" interface
    - void startGameloop() >> starts the gameloop on a new thread if a Gameloop-object is added
-   - void setFPS(int fps) >> configures the gameloop to target the passed fps if a Gameloop-object is added
+   - void setFPS(int fps) >> configures the gameloop to target the passed fps if a Gameloop-object is added (if the value is not between 1 and 1000 the gameloop will try to target 1000 FPS)
 - Drawing stuff on screen
    - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draw rectangle
    - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorA, int colorR, int colorG, int colorB) >> draw rectangle (with alpha)
