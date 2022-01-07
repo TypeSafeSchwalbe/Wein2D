@@ -36,7 +36,7 @@ Methods:
    - int getWidth() >> get the width of the window in pixels
    - int getHeight() >> get the height of the window in pixels
    - boolean getVisible() >> get if the window is visible
-   - int getFPS() >> returns the FPS the gameloop is configured to (returns -1 if no Gameloop-object added)
+   - int getFPS() >> returns the number of frames the gameloop did in the last second (value refreshes once per second), returns -1 if no gameloop object configured, returns 0 if no full second passed yet
 - Gameloop
    - void addGameloop(Gameloop gameloop) >> add an object to the window that implements the "Gameloop" interface
    - void startGameloop() >> starts the gameloop on a new thread if a Gameloop-object is added
