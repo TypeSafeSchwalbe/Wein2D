@@ -69,6 +69,10 @@ Methods:
          - Key.N0, Key.N1, Key.N2, [...] Key.N7, Key.N8, Key.N9
          - Key.F1, Key.F2, Key.F3, [...] Key.F10, Key.F11, Key.F12
 
+Variables:  
+- int width >> stores the current width of the window
+- int height >> stores the current height of the window
+
 ## Sprite
 Constructors:  
 
