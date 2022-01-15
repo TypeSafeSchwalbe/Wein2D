@@ -11,7 +11,7 @@ There is also a version for android development, [Wein2DAndroid](https://www.git
 
 ## Code example
 This is a simple Example for a program (ExampleProgram.java):
-![ExampleProgram.java](https://github.com/devtaube/wein2d/blob/main/markdown_images/exampleprogramclass.png?raw=true)
+![ExampleProgram.java](https://github.com/devtaube/wein2d/blob/main/markdown_images/exampleprogramclassnew.png?raw=true)
 
 The code is also located in "./testapp".
 
