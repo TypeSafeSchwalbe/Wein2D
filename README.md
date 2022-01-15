@@ -19,28 +19,21 @@ The code is also located in "./testapp".
 This is a list of all features, classes and methods.
 
 ## Window
-Constructors:  
-Window()
-Window(int width, int height)
--> creates a Window
+Constructor (Builder):  
+Window()  
+.setSize(int width, int height) >> sets the size of the window [default: 848, 480]  
+.setFullscreen(boolean fullscreen) >> sets if the window is fullscreen or not [default: false]  
+.setTitle(String title) >> sets the title of the window [default: "Wein2D Application"]  
+.setResizable(boolean resizable) >> sets if the window is resizable or not [default: true]  
+.setGameloopObject(Gameloop gameloop) >> sets an object implementing gameloop (configures gameloop at build)  
+.setTargetedFPS(int fps) >> sets the targeted FPS [default: 60]  
+.setIcon(String iconPath) >> sets an icon for the window  
+.setIcon(java.awt.Image image) >> sets an icon for the window  
+.build() >> configures the window, makes it visible and starts the gameloop (applies changes if used on an existing window)  
 
 Methods:
-- Setters
-   - void setVisible(boolean visible) >> defines if the window is visible
-   - void setSize(int width, int height) >> sets the size of the window
-   - void setTitle(String title) >> sets the title of the window
-   - void setIcon(String filePath)  >> sets the window's icon
-   - void setResizable(boolean resizable) >> defines if the window can be resized
-   - void setFullScreen(boolean fullscreen) >> defines if the window takes up the entire screen
 - Getters
-   - int getWidth() >> get the width of the window in pixels
-   - int getHeight() >> get the height of the window in pixels
-   - boolean getVisible() >> get if the window is visible
    - int getFPS() >> returns the number of frames the gameloop did in the last second (value refreshes once per second), returns -1 if no gameloop object configured, returns 0 if no full second passed yet
-- Gameloop
-   - void addGameloop(Gameloop gameloop) >> add an object to the window that implements the "Gameloop" interface
-   - void startGameloop() >> starts the gameloop on a new thread if a Gameloop-object is added
-   - void setFPS(int fps) >> configures the gameloop to target the passed fps if a Gameloop-object is added (if the value is not between 1 and 1000 the gameloop will try to target 1000 FPS)
 - Drawing stuff on screen
    - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draw rectangle
    - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorA, int colorR, int colorG, int colorB) >> draw rectangle (with alpha)
@@ -54,10 +47,10 @@ Methods:
    - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY, int colorA) >> draw sprite (specified size and source size, with alpha)
    - void drawText(String content, int posX, int posY, int fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text
    - void drawText(String content, int posX, int posY, int fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with alpha)
-   - void drawText(String content, int posX, int posY, String positioning, int fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text (with positioning)
-        - positioning may be: "LEFT", "CENTER", "RIGHT"
-   - void drawText(String content, int posX, int posY, String positioning, int fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with positioning, with alpha)
-        - positioning may be: "LEFT", "CENTER", "RIGHT"
+   - void drawText(String content, int posX, int posY, int positioning, int fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text (with positioning)
+        - positioning may be: TextPositioning.LEFT, TextPositioning.CENTER, TextPositioning.RIGHT
+   - void drawText(String content, int posX, int posY, int positioning, int fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with positioning, with alpha)
+        - positioning may be: TextPositioning.LEFT, TextPositioning.CENTER, TextPositioning.RIGHT
    - void fill(int colorR, int colorG, int colorB) >> fill window with color
    - void fill(int colorA, int colorR, int colorG, int colorB) >> fill window with color (with alpha)
    - void drawLine(int posX, int posY, int endX, int endY, int width, int colorR, int colorG, int colorB) >> draws a line on screen
@@ -68,8 +61,13 @@ Methods:
    - int getMouseY() >> returns the mouse's position on the y-axis
    - boolean getMouseL() >> returns if the mouse's left button is being pressed
    - boolean getMouseR() >> returns if the mouse's right button is being pressed
-   - void getKey(String keyID) >> returns if a certain key on the keyboard is being pressed
-       - key ID's: "ctrl", "shift", "space", "backspace", "enter", "alt", "arrUp", "arrDown", "arrLeft", "arrRight", "keyA", "keyB", "keyC", ... , "keyY", "keyZ", "key0", "key1", "key2", ... , "key9", "keyF1", "keyF2", "keyF3", ... , "keyF12"
+   - void getKey(int keyID) >> returns if a certain key on the keyboard is being pressed
+       - valid key ID's:
+         - Key.CTRL, Key.SHIFT, Key.SPACE, Key.BACKSPACE, Key.ENTER, Key.ALT
+         - Key.UP, Key.DOWN, Key.LEFT, Key.RIGHT
+         - Key.A, Key.B, Key.C, [...] Key.X, Key.Y, Key.Z
+         - Key.N0, Key.N1, Key.N2, [...] Key.N7, Key.N8, Key.N9
+         - Key.F1, Key.F2, Key.F3, [...] Key.F10, Key.F11, Key.F12
 
 ## Sprite
 Constructors:  
