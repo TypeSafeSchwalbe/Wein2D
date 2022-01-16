@@ -7,7 +7,9 @@ Wein2D is a simple Graphics Library built on top of the javax.swing and java.awt
 - playing sounds
 - simple methods for detecting collision
 
-There is also a version for android development, [Wein2DAndroid](https://www.github.com/devtaube/wein2dandroid).
+Other Versions:  
+[Wein2DAndroid](https://www.github.com/devtaube/wein2dandroid)  
+[Wein2D.js](https://www.github.com/devtaube/wein2d.js)  
 
 ## Code example
 This is a simple Example for a program (ExampleProgram.java):
