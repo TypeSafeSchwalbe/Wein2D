@@ -23,7 +23,7 @@ This is a list of all features, classes and methods.
 ## Window
 Constructor (Builder):  
 Window()  
-.setGameloopObject(Gameloop gameloop) >> sets an object implementing gameloop (configures gameloop at build)   ! REQUIRED !
+.setGameloopObject(Gameloop gameloop) >> sets an object implementing gameloop (configures gameloop at build) !REQUIRED!  
 .setSize(int width, int height) >> sets the size of the window [default: 848, 480]  
 .setFullscreen(boolean fullscreen) >> sets if the window is fullscreen or not [default: false]  
 .setTitle(String title) >> sets the title of the window [default: "Wein2D Application"]  
