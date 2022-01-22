@@ -14,7 +14,7 @@ Other Versions:
 ## Code example
 This is a simple Example for a program:
 ```java
-package testapp;
+package devtaube.wein2dexample;
 
 import devtaube.wein2d.*;
 
