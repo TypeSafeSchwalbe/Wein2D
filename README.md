@@ -12,10 +12,34 @@ Other Versions:
 [Wein2D.js](https://www.github.com/devtaube/wein2d.js)  
 
 ## Code example
-This is a simple Example for a program (ExampleProgram.java):
-![ExampleProgram.java](https://github.com/devtaube/wein2d/blob/main/markdown_images/exampleprogramclassnew.png?raw=true)
+This is a simple Example for a program:
+```java
+package testapp;
 
-The code is also located in "./testapp".
+import devtaube.wein2d.*;
+
+public class ExampleProgram implements Gameloop { // implements Gameloop so 'onFrame()' can be called
+
+    Window window; // stores the window
+    int ballX;
+
+    public static void main(String[] args) { new ExampleProgram(); }
+
+    public ExampleProgram() {
+        // new Window() >> creates Window object
+        // .setGameloopObject(this) >> adds this object as gameloop object
+        // .build(); >> applies settings and shows new window, starts gameloop
+        window = new Window().setGameloopObject(this).build();
+    }
+
+    public void onFrame() { // gets called once per frame
+        ballX += 3;
+        if (ballX > window.width) ballX = -50;
+        window.fill(40, 40, 40); // fills the screen with gray
+        window.drawOval(ballX, (window.height - 50) / 2, 50, 50, 255, 255, 255); // draws an oval
+    }
+}
+```
 
 # Documentation
 This is a list of all features, classes and methods.
