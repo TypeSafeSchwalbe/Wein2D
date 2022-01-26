@@ -52,7 +52,7 @@ Window()
 .setFullscreen(boolean fullscreen) >> sets if the window is fullscreen or not [default: false]  
 .setTitle(String title) >> sets the title of the window [default: "Wein2D Application"]  
 .setResizable(boolean resizable) >> sets if the window is resizable or not [default: true]  
-.setTargetedFPS(int fps) >> sets the targeted FPS [default: 60]  
+.setTargetedFPS(int fps) >> sets the targeted FPS (0 or below = unlimited) [default: 60]
 .setIcon(String iconPath) >> sets an icon for the window  
 .setIcon(java.awt.Image image) >> sets an icon for the window  
 .setHardwareAcceleration(boolean doHardwareAcceleration) >> enables or disables hardware acceleration  
