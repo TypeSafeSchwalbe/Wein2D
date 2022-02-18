@@ -128,7 +128,6 @@ Sound(javax.sound.sampled.Clip clip)
 
 Methods:
  - final void play() >> plays the sound  
- - final void setFramePosition(int frame) >> sets the position inside the sound (call this using '0' to play a sound from the start before calling 'play()')  
  - final void setVolume(double volume) >> changes the sound's loudness  
      - 0.0 -> not audible at all  
      - 0.5 -> 50% loudness  
