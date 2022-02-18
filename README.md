@@ -64,32 +64,32 @@ Methods:
    - final void setHardwareAcceleration(boolean doHardwareAcceleration) >> use opengl (enabled by default)
    - final void build() >> needed for changes to apply and for window to be visible
 - Drawing stuff
-   - void drawRect(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB) >> draw rectangle
-   - void drawRect(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB) >> draw rectangle (with alpha)
-   - void drawOval(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB) >> draw oval
-   - void drawOval(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB) >> draw oval (with alpha)
-   - void drawSprite(Sprite sprite, double posX, double posY) >> draw sprite
-   - void drawSprite(Sprite sprite, double posX, double posY, int colorA) >> draw sprite (with alpha)
-   - void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY) >> draw sprite (specified size)
-   - void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int colorA) >> draw sprite (specified size, with alpha)
-   - void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY) >> draw sprite (specified size and source size)
-   - void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY, int colorA) >> draw sprite (specified size and source size, with alpha)
-   - void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text
-   - void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with alpha)
-   - void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text (with positioning)
+   - final void drawRect(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB) >> draw rectangle
+   - final void drawRect(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB) >> draw rectangle (with alpha)
+   - final void drawOval(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB) >> draw oval
+   - final void drawOval(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB) >> draw oval (with alpha)
+   - final void drawSprite(Sprite sprite, double posX, double posY) >> draw sprite
+   - final void drawSprite(Sprite sprite, double posX, double posY, int colorA) >> draw sprite (with alpha)
+   - final void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY) >> draw sprite (specified size)
+   - final void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int colorA) >> draw sprite (specified size, with alpha)
+   - final void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY) >> draw sprite (specified size and source size)
+   - final void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY, int colorA) >> draw sprite (specified size and source size, with alpha)
+   - final void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text
+   - final void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with alpha)
+   - final void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text (with positioning)
         - positioning may be: TextPositioning.LEFT, TextPositioning.CENTER, TextPositioning.RIGHT
-   - void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with positioning, with alpha)
+   - final void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with positioning, with alpha)
         - positioning may be: TextPositioning.LEFT, TextPositioning.CENTER, TextPositioning.RIGHT
-   - void fill(int colorR, int colorG, int colorB) >> fill window with color
-   - void fill(int colorA, int colorR, int colorG, int colorB) >> fill window with color (with alpha)
-   - void drawLine(double posX, double posY, double endX, double endY, double width, int colorR, int colorG, int colorB) >> draws a line on screen
-   - void drawLine(double posX, double posY, double endX, double endY, double width, int colorA, int colorR, int colorG, int colorB) >> draws a line on screen with alpha
+   - final void fill(int colorR, int colorG, int colorB) >> fill window with color
+   - final void fill(int colorA, int colorR, int colorG, int colorB) >> fill window with color (with alpha)
+   - final void drawLine(double posX, double posY, double endX, double endY, double width, int colorR, int colorG, int colorB) >> draws a line on screen
+   - final void drawLine(double posX, double posY, double endX, double endY, double width, int colorA, int colorR, int colorG, int colorB) >> draws a line on screen with alpha
 - Input
-   - int getMouseX() >> returns the mouse's position on the x-axis
-   - int getMouseY() >> returns the mouse's position on the y-axis
-   - boolean getMouseL() >> returns if the mouse's left button is being pressed
-   - boolean getMouseR() >> returns if the mouse's right button is being pressed
-   - void getKey(int keyID) >> returns if a certain key on the keyboard is being pressed
+   - final int getMouseX() >> returns the mouse's position on the x-axis
+   - final int getMouseY() >> returns the mouse's position on the y-axis
+   - final boolean getMouseL() >> returns if the mouse's left button is being pressed
+   - final boolean getMouseR() >> returns if the mouse's right button is being pressed
+   - final void getKey(int keyID) >> returns if a certain key on the keyboard is being pressed
        - valid key ID's:
          - Key.CTRL, Key.SHIFT, Key.SPACE, Key.BACKSPACE, Key.ENTER, Key.ALT, Key.ESC
          - Key.UP, Key.DOWN, Key.LEFT, Key.RIGHT
@@ -123,20 +123,14 @@ Sound(javax.sound.sampled.Clip clip)
 -> creates the sound from the given clip object  
 
 Methods:
- - void play() >> plays the sound  
- - void setFramePosition(int frame) >> sets the position inside the sound (call this using '0' to play a sound from the start before calling 'play()')  
- - void setVolume(double volume) >> changes the sound's loudness  
+ - final void play() >> plays the sound  
+ - final void setFramePosition(int frame) >> sets the position inside the sound (call this using '0' to play a sound from the start before calling 'play()')  
+ - final void setVolume(double volume) >> changes the sound's loudness  
      - 0.0 -> not audible at all  
      - 0.5 -> 50% loudness  
      - 1.0 -> max (100%) loudness  
- - void loop(boolean loopInfinitly) >> loops the sound  
- - void stop() >> stops playback of the sound  
-
-## Gameloop
--> interface  
-
-Methods:
-  - void onFrame() >> gets called every frame after the object, that implements it, has been passed to a window object via 'addGameloop(Gameloop gameloop)'
+ - final void loop(boolean loopInfinitly) >> loops the sound  
+ - final void stop() >> stops playback of the sound  
 
 ## Collision
 Methods:
