@@ -112,6 +112,10 @@ Sprite(java.io.File file)
 Sprite(java.awt.Image image)  
 -> creates the sprite from the given image object  
 
+Methods:
+ - final int getWidth() >> returns the sprite's width
+ - final int getHeight() >> returns the sprite's height
+
 ## Sound
 Constructors:  
 
