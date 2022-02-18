@@ -1,7 +1,6 @@
 # Introduction
 Wein2D is a simple Graphics Library built on top of the javax.swing and java.awt libraries. It's primarily made for making games. It supports / has:
-- creating the game/program's window and managing it
-- adding your own 'onFrame' method to these windows to get called every frame
+- creating your own 'Wein2DApplication'-Class that acts as a single window
 - drawing simple shapes and images to these windows, including text
 - getting mouse and keyboard input from your user
 - playing sounds
@@ -14,29 +13,22 @@ Other Versions:
 ## Code example
 This is a simple Example for a program:
 ```java
-package devtaube.wein2dexample;
+package testapp;
 
-import devtaube.wein2d.*;
+import devtaube.wein2d.Wein2DApplication;
 
-public class ExampleProgram implements Gameloop { // implements Gameloop so 'onFrame()' can be called
-
-    Window window; // stores the window
-    int ballX;
+public class ExampleProgram extends Wein2DApplication {
+    double ballX;
 
     public static void main(String[] args) { new ExampleProgram(); }
 
-    public ExampleProgram() {
-        // new Window() >> creates Window object
-        // .setGameloopObject(this) >> adds this object as gameloop object
-        // .build(); >> applies settings and shows new window, starts gameloop
-        window = new Window().setGameloopObject(this).build();
-    }
+    public ExampleProgram() { this.build(); }
 
-    public void onFrame() { // gets called once per frame
-        ballX += 3;
-        if (ballX > window.width) ballX = -50;
-        window.fill(40, 40, 40); // fills the screen with gray
-        window.drawOval(ballX, (window.height - 50) / 2, 50, 50, 255, 255, 255); // draws an oval
+    public void onFrame() {
+        ballX += 200 * deltaTime;
+        if (ballX > width) ballX = -50;
+        this.fill(40, 40, 40);
+        this.drawOval(ballX, (height - 50) / 2, 50, 50, 255, 255, 255);
     }
 }
 ```
@@ -44,45 +36,45 @@ public class ExampleProgram implements Gameloop { // implements Gameloop so 'onF
 # Documentation
 This is a list of all features, classes and methods.
 
-## Window
-Constructor (Builder):  
-Window()  
-.setGameloopObject(Gameloop gameloop) >> sets an object implementing gameloop (configures gameloop at build) !REQUIRED!  
-.setSize(int width, int height) >> sets the size of the window [default: 848, 480]  
-.setFullscreen(boolean fullscreen) >> sets if the window is fullscreen or not [default: false]  
-.setTitle(String title) >> sets the title of the window [default: "Wein2D Application"]  
-.setResizable(boolean resizable) >> sets if the window is resizable or not [default: true]  
-.setTargetedFPS(int fps) >> sets the targeted FPS (0 or below = unlimited) [default: 60]
-.setIcon(String iconPath) >> sets an icon for the window  
-.setIcon(java.awt.Image image) >> sets an icon for the window  
-.setHardwareAcceleration(boolean doHardwareAcceleration) >> enables or disables hardware acceleration  
-.build() >> configures the window, makes it visible and starts the gameloop (applies changes if used on an existing window)  
+## Wein2DApplication (abstract class)
+
+Abstract Methods:
+- abstract void onFrame() >> gets called once per frame
 
 Methods:
 - Getters
    - int getFPS() >> returns the number of frames the gameloop did in the last second (value refreshes once per second), returns -1 if no gameloop object configured, returns 0 if no full second passed yet
-- Drawing stuff on screen
-   - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draw rectangle
-   - void drawRect(int posX, int posY, int sizeX, int sizeY, int colorA, int colorR, int colorG, int colorB) >> draw rectangle (with alpha)
-   - void drawOval(int posX, int posY, int sizeX, int sizeY, int colorR, int colorG, int colorB) >> draw oval
-   - void drawOval(int posX, int posY, int sizeX, int sizeY, int colorA, int colorR, int colorG, int colorB) >> draw oval (with alpha)
-   - void drawSprite(Sprite sprite, int posX, int posY) >> draw sprite
-   - void drawSprite(Sprite sprite, int posX, int posY, int colorA) >> draw sprite (with alpha)
-   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY) >> draw sprite (specified size)
-   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int colorA) >> draw sprite (specified size, with alpha)
-   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY) >> draw sprite (specified size and source size)
-   - void drawSprite(Sprite sprite, int posX, int posY, int sizeX, int sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY, int colorA) >> draw sprite (specified size and source size, with alpha)
-   - void drawText(String content, int posX, int posY, int fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text
-   - void drawText(String content, int posX, int posY, int fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with alpha)
-   - void drawText(String content, int posX, int posY, int positioning, int fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text (with positioning)
+- Setters
+   - final void setSize(int sizeX, int sizeY) >> set the window's size (848x480 by default)
+   - final void setFullscreen(boolean fullscreen) >> set if the window is fullscreen (disabled by default)
+   - final void setTitle(String title) >> sets the window's title ("Wein2D Application" by default)
+   - final void setResizable(boolean resizable) >> set if the window is resizable (enabled by default)
+   - final void setTargetedFPS(int fps) >> set the amount of frames per second the gameloop targets (a value below 1 or above 1000 means unlimited) (60 by default)
+   - final void setIcon(String iconPath) >> set the window's icon (none by default)
+   - final void setIcon(Image image) >> set the window's icon (none by default)
+   - final void setHardwareAcceleration(boolean doHardwareAcceleration) >> use opengl (enabled by default)
+   - final void build() >> needed for changes to apply and for window to be visible
+- Drawing stuff
+   - void drawRect(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB) >> draw rectangle
+   - void drawRect(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB) >> draw rectangle (with alpha)
+   - void drawOval(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB) >> draw oval
+   - void drawOval(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB) >> draw oval (with alpha)
+   - void drawSprite(Sprite sprite, double posX, double posY) >> draw sprite
+   - void drawSprite(Sprite sprite, double posX, double posY, int colorA) >> draw sprite (with alpha)
+   - void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY) >> draw sprite (specified size)
+   - void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int colorA) >> draw sprite (specified size, with alpha)
+   - void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY) >> draw sprite (specified size and source size)
+   - void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY, int colorA) >> draw sprite (specified size and source size, with alpha)
+   - void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text
+   - void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with alpha)
+   - void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorR, int colorG, int colorB) >> draw text (with positioning)
         - positioning may be: TextPositioning.LEFT, TextPositioning.CENTER, TextPositioning.RIGHT
-   - void drawText(String content, int posX, int posY, int positioning, int fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with positioning, with alpha)
+   - void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB) >> draw text (with positioning, with alpha)
         - positioning may be: TextPositioning.LEFT, TextPositioning.CENTER, TextPositioning.RIGHT
    - void fill(int colorR, int colorG, int colorB) >> fill window with color
    - void fill(int colorA, int colorR, int colorG, int colorB) >> fill window with color (with alpha)
-   - void drawLine(int posX, int posY, int endX, int endY, int width, int colorR, int colorG, int colorB) >> draws a line on screen
-   - void drawLine(int posX, int posY, int endX, int endY, int width, int colorA, int colorR, int colorG, int colorB) >> draws a line on screen with alpha
-   - void redraw() >> needed for your drawing to happen; call it once per frame
+   - void drawLine(double posX, double posY, double endX, double endY, double width, int colorR, int colorG, int colorB) >> draws a line on screen
+   - void drawLine(double posX, double posY, double endX, double endY, double width, int colorA, int colorR, int colorG, int colorB) >> draws a line on screen with alpha
 - Input
    - int getMouseX() >> returns the mouse's position on the x-axis
    - int getMouseY() >> returns the mouse's position on the y-axis
@@ -99,6 +91,7 @@ Methods:
 Variables:  
 - int width >> stores the current width of the window
 - int height >> stores the current height of the window
+- int deltaTime >> time in seconds since last frame
 
 ## Sprite
 Constructors:  
