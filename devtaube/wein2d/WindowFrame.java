@@ -19,6 +19,7 @@ class WindowFrame extends JFrame
     WindowFrame(Wein2DApplication window, int sizeX, int sizeY, boolean fullscreen, String title, boolean resizable, int fps, Image icon)
     {
         this.window = window;
+
         screenSizeX = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
         screenSizeY = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
         canvas = new devtaube.wein2d.Canvas(this, sizeX, sizeY);
