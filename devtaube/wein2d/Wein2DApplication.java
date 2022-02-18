@@ -61,7 +61,8 @@ public abstract class Wein2DApplication
         this.fps = fps;
     }
 
-    public final void setIcon(String iconPath) {
+    public final void setIcon(String iconPath)
+    {
         try
         {
             String fullIconPath = System.getProperty("user.dir") + "/" + iconPath;
@@ -103,7 +104,7 @@ public abstract class Wein2DApplication
 
     // Methods ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public int getFPS()
+    public final int getFPS()
     {
         if(jFrame != null)
         {
@@ -114,22 +115,22 @@ public abstract class Wein2DApplication
     }
 
     // Input ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public boolean getKey(int key) {
+    public final boolean getKey(int key) {
         return jFrame.keyAdapter.keys[key];
     }
-    public int getMouseX()
+    public final int getMouseX()
     {
       return jFrame.mouseAdapter.mouseX;
     }
-    public int getMouseY()
+    public final int getMouseY()
     {
       return jFrame.mouseAdapter.mouseY;
     }
-    public boolean getMouseL()
+    public final boolean getMouseL()
     {
       return jFrame.mouseAdapter.mouseButtonL;
     }
-    public boolean getMouseR()
+    public final boolean getMouseR()
     {
       return jFrame.mouseAdapter.mouseButtonR;
     }
@@ -137,80 +138,80 @@ public abstract class Wein2DApplication
 
     public abstract void onFrame();
 
-    public void drawRect(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB)
+    public final void drawRect(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawRect(posX, posY, sizeX, sizeY, 255, colorR, colorG, colorB);
     }
-    public void drawRect(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB)
+    public final void drawRect(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawRect(posX, posY, sizeX, sizeY, colorA, colorR, colorG, colorB);
     }
 
-    public void drawOval(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB)
+    public final void drawOval(double posX, double posY, double sizeX, double sizeY, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawOval(posX, posY, sizeX, sizeY, 255, colorR, colorG, colorB);
     }
-    public void drawOval(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB)
+    public final void drawOval(double posX, double posY, double sizeX, double sizeY, int colorA, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawOval(posX, posY, sizeX, sizeY, colorA, colorR, colorG, colorB);
     }
 
-    public void drawSprite(Sprite sprite, double posX, double posY)
+    public final void drawSprite(Sprite sprite, double posX, double posY)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawSprite(sprite, posX, posY, sprite.getImage().getWidth(null) + posX, sprite.getImage().getHeight(null) + posY, 0, 0, sprite.getImage().getWidth(null), sprite.getImage().getHeight(null), 255);
     }
-    public void drawSprite(Sprite sprite, double posX, double posY, int colorA)
+    public final void drawSprite(Sprite sprite, double posX, double posY, int colorA)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawSprite(sprite, posX, posY, sprite.getImage().getWidth(null) + posX, sprite.getImage().getHeight(null) + posY, 0, 0, sprite.getImage().getWidth(null), sprite.getImage().getHeight(null), colorA);
     }
-    public void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY)
+    public final void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawSprite(sprite, posX, posY, sizeX + posX, sizeY + posY, 0, 0, sprite.getImage().getWidth(null), sprite.getImage().getHeight(null), 255);
     }
-    public void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int colorA)
+    public final void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int colorA)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawSprite(sprite, posX, posY, sizeX + posX, sizeY + posY, 0, 0, sprite.getImage().getWidth(null), sprite.getImage().getHeight(null), colorA);
     }
-    public void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY)
+    public final void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawSprite(sprite, posX, posY, sizeX + posX, sizeY + posY, srcPosX, srcPosY, srcSizeX + srcPosX, srcSizeY + srcPosY, 255);
     }
-    public void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY, int colorA)
+    public final void drawSprite(Sprite sprite, double posX, double posY, double sizeX, double sizeY, int srcPosX, int srcPosY, int srcSizeX, int srcSizeY, int colorA)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawSprite(sprite, posX, posY, sizeX + posX, sizeY + posY, srcPosX, srcPosY, srcSizeX + srcPosX, srcSizeY + srcPosY, colorA);
     }
 
-    public void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorR, int colorG, int colorB)
+    public final void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawText(content, posX, posY + fontSize, TextPositioning.RIGHT, fontSize, fontFamily, 255, colorR, colorG, colorB);
     }
-    public void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB)
+    public final void drawText(String content, double posX, double posY, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawText(content, posX, posY + fontSize, TextPositioning.RIGHT, fontSize, fontFamily, colorA, colorR, colorG, colorB);
     }
-    public void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorR, int colorG, int colorB)
+    public final void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawText(content, posX, posY + fontSize, positioning, fontSize, fontFamily, 255, colorR, colorG, colorB);
     }
-    public void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB)
+    public final void drawText(String content, double posX, double posY, int positioning, double fontSize, String fontFamily, int colorA, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawText(content, posX, posY + fontSize, positioning, fontSize, fontFamily, colorA, colorR, colorG, colorB);
     }
 
-    public void fill(int colorR, int colorG, int colorB)
+    public final void fill(int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawRect(0, 0, -1, -1, 255, colorR, colorG, colorB);
     }
-    public void fill(int colorA, int colorR, int colorG, int colorB)
+    public final void fill(int colorA, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawRect(0, 0, -1, -1, colorA, colorR, colorG, colorB);
     }
 
-    public void drawLine(double posX, double posY, double endX, double endY, double lineWidth, int colorR, int colorG, int colorB)
+    public final void drawLine(double posX, double posY, double endX, double endY, double lineWidth, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawLine(posX, posY, endX, endY, lineWidth, 255, colorR, colorG, colorB);
     }
-    public void drawLine(double posX, double posY, double endX, double endY, double lineWidth, int colorA, int colorR, int colorG, int colorB)
+    public final void drawLine(double posX, double posY, double endX, double endY, double lineWidth, int colorA, int colorR, int colorG, int colorB)
     {
         if(jFrame.canvas.locked) jFrame.canvas.drawLine(posX, posY, endX, endY, lineWidth, colorA, colorR, colorG, colorB);
     }

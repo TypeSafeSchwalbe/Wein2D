@@ -42,11 +42,11 @@ public class Sprite
         // return the stored image
         return image;
     }
-    public int getWidth()
+    public final int getWidth()
     {
         return image.getWidth(null);
     }
-    public int getHeight()
+    public final int getHeight()
     {
         return image.getHeight(null);
     }
