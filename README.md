@@ -13,22 +13,31 @@ Other Versions:
 ## Code example
 This is a simple Example for a program:
 ```java
-package testapp;
+import devtaube.wein2d.*;
 
-import devtaube.wein2d.Wein2DApplication;
-
-public class ExampleProgram extends Wein2DApplication {
-    double ballX;
+public class ExampleProgram extends Wein2DApplication { // extend Application
+    double ballX = -0.05; // stores where ball is on the x axis
 
     public static void main(String[] args) { new ExampleProgram(); }
 
-    public ExampleProgram() { this.build(); }
+    public ExampleProgram() {
+        this.build(); // complete build and start
+    }
 
     public void onFrame() {
-        ballX += 200 * deltaTime;
-        if (ballX > width) ballX = -50;
+        // calculating
+        ballX += 0.2 * deltaTime; // move ball by 1/5 of the screen with per second
+        if (ballX > 1.05) ballX = -0.05; // move ball to left if out of screen on the right
+        double ballYOffset = Math.sin((ballX * 360 * 2) * Math.PI / 180);
+        // rendering
         this.fill(40, 40, 40);
-        this.drawOval(ballX, (height - 50) / 2, 50, 50, 255, 255, 255);
+        this.drawOval(
+                ballX * width - 25, (height / 2 - 25) + (ballYOffset * height / 4), // posX, posY
+                50, 50, // sizeX, sizeY
+                (int) ((ballYOffset + 1) / 2 * 255), // red
+                150 - (int) ((ballYOffset + 1) / 2 * 150) + 105, // green
+                (int) ((ballYOffset + 1) / 2 * 150) + 105 // blue
+        );
     }
 }
 ```
@@ -114,13 +123,14 @@ Sound(javax.sound.sampled.Clip clip)
 -> creates the sound from the given clip object  
 
 Methods:
- - void play() >> plays the sound
- - void setVolume(double volume) >> changes the sound's loudness
-     - 0.0 -> not audible at all
-     - 0.5 -> 50% loudness
-     - 1.0 -> max (100%) loudness
- - void loop(boolean loopInfinitly) >> loops the sound
- - void stop() >> stops playback of the sound
+ - void play() >> plays the sound  
+ - void setFramePosition(int frame) >> sets the position inside the sound (call this using '0' to play a sound from the start before calling 'play()')  
+ - void setVolume(double volume) >> changes the sound's loudness  
+     - 0.0 -> not audible at all  
+     - 0.5 -> 50% loudness  
+     - 1.0 -> max (100%) loudness  
+ - void loop(boolean loopInfinitly) >> loops the sound  
+ - void stop() >> stops playback of the sound  
 
 ## Gameloop
 -> interface  
@@ -146,3 +156,9 @@ Methods:
      - returns 'false' if rectangle isn't inside specified rectangle
      - returns 'true' if rectangle is inside specified rectangle
 
+## FileIOMethods
+Methods:
+ - static Sprite loadSpriteFromClassPath(String filePath) >> returns a Sprite object relative to the class path (for example from the root dir of a jar if running inside one)
+ - static Sound loadSoundFromClassPath(String filePath) >> returns a Sound object relative to the class path (for example from the root dir of a jar if running inside one)
+ - static void serializeObject(Object object, String filePath) >> stores the given object as a file at the given location
+ - static Object deserializeObject(String filePath) >> reads an object from the given location and returns it
