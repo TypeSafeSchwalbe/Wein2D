@@ -79,6 +79,11 @@ public abstract class Wein2DApplication
         this.icon = image;
     }
 
+    public final void setIcon(Sprite sprite)
+    {
+        this.icon = sprite.getImage();
+    }
+
     public final void setHardwareAcceleration(boolean doHardwareAcceleration)
     {
         this.doHardwareAcceleration = doHardwareAcceleration;
