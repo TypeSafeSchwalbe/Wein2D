@@ -28,6 +28,8 @@ class Canvas extends JPanel
     }
     // Override: paintComponent ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    private int lastWidth = 0;
+    private int lastHeight = 0;
     private long lastFrameTime = 0;
 
     @Override
@@ -44,6 +46,13 @@ class Canvas extends JPanel
         windowFrame.window.height = height;
         // get Graphics2D
         currentG = (Graphics2D) g;
+        // reset last frame time on width or height change
+        if(lastWidth != width || lastHeight != height)
+        {
+            lastWidth = width;
+            lastHeight = height;
+            lastFrameTime = System.nanoTime();
+        }
         // call onFrame-Method of gameloopObject
         long time = System.nanoTime();
         windowFrame.window.deltaTime = (double) (time - lastFrameTime) / 1_000_000_000;
