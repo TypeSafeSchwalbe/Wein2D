@@ -89,7 +89,7 @@ Methods:
    - final int getMouseY() >> returns the mouse's position on the y-axis
    - final boolean getMouseL() >> returns if the mouse's left button is being pressed
    - final boolean getMouseR() >> returns if the mouse's right button is being pressed
-   - final void getKey(int keyID) >> returns if a certain key on the keyboard is being pressed
+   - final boolean getKey(int keyID) >> returns if a certain key on the keyboard is being pressed
        - valid key ID's:
          - Key.CTRL, Key.SHIFT, Key.SPACE, Key.BACKSPACE, Key.ENTER, Key.ALT, Key.ESC
          - Key.UP, Key.DOWN, Key.LEFT, Key.RIGHT
