@@ -11,6 +11,7 @@ class WindowFrame extends JFrame
     protected devtaube.wein2d.Canvas canvas;
     protected KeyManager keyAdapter;
     protected MouseManager mouseAdapter;
+    protected WindowFocusManager windowFocusListener;
     protected GameloopThread gameloopThread;
     // Primitive
     protected int screenSizeX;
@@ -25,12 +26,14 @@ class WindowFrame extends JFrame
         canvas = new devtaube.wein2d.Canvas(this, sizeX, sizeY);
         keyAdapter = new KeyManager();
         mouseAdapter = new MouseManager();
+        windowFocusListener = new WindowFocusManager(this);
 
         this.add(canvas);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.addKeyListener(keyAdapter);
         canvas.addMouseListener(mouseAdapter);
         canvas.addMouseMotionListener(mouseAdapter);
+        this.addWindowFocusListener(windowFocusListener);
         this.setTitle(title);
         this.setResizable(resizable);
         if(icon != null) this.setIconImage(icon);
