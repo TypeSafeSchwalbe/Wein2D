@@ -34,4 +34,4 @@ public class ExampleProgram extends Wein2DApplication { // extend Application
 ```
 
 # Documentation
-Documentation for Wein2D can be found at [wein2ddocs.netlify.app](wein2ddocs.netlify.app).
+Documentation for Wein2D can be found at [https://wein2ddocs.netlify.app](https://wein2ddocs.netlify.app).
