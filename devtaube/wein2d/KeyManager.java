@@ -67,8 +67,6 @@ class KeyManager implements KeyListener
             typedText = typedText.substring(1);
 
         typedText += e.getKeyChar();
-
-        System.out.println(typedText.length());
     }
 
     private int getKeyIndex(int keyCode) {
