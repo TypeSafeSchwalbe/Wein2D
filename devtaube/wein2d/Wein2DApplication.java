@@ -127,22 +127,35 @@ public abstract class Wein2DApplication implements RenderCalls
 
     public final void setFullscreen(boolean fullscreen)
     {
+        // get frame info
+        boolean frameVisible = frame.isVisible();
+        boolean frameResizable = frame.isResizable();
+        Image frameIcon = frame.getIconImage();
+        String frameTitle = frame.getTitle();
+
+        // destroy old frame
+        frame.dispose();
+
+        // create new frame from old info
+        frame = new JFrame(frameTitle);
+        frame.add(panel);
+        frame.addKeyListener(keyManager);
+        frame.addWindowFocusListener(windowFocusManager);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(frameResizable);
+        frame.setIconImage(frameIcon);
+
+        // configure the new frame
+        frame.setUndecorated(fullscreen);
         if(fullscreen)
-        {
-            boolean frameVisible = frame.isVisible();
-            frame.setVisible(false);
-            frame.setUndecorated(true);
             frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-            frame.setVisible(frameVisible);
-        }
         else
-        {
-            boolean frameVisible = frame.isVisible();
-            frame.setVisible(false);
-            frame.setUndecorated(false);
             frame.setSize(lastSetWidth, lastSetHeight);
-            frame.setVisible(frameVisible);
-        }
+
+        // show it and position it if needed
+        frame.setVisible(frameVisible);
+        if(!fullscreen)
+            centerOnScreen(getCurrentScreen());
     }
 
     public final void setResizable(boolean resizable)
