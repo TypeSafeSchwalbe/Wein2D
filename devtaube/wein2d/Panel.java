@@ -42,12 +42,14 @@ class Panel extends JPanel {
 
 
     @Override
-    public Dimension getPreferredSize() {
+    public Dimension getPreferredSize()
+    {
         return new Dimension(wein2DApplication.width, wein2DApplication.height);
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g)
+    {
         locked = false;
 
         super.paintComponent(g);
