@@ -53,8 +53,9 @@ public abstract class Wein2DApplication implements RenderCalls
     private static final int DEFAULT_WIDTH = 848;
     private static final int DEFAULT_HEIGHT = 480;
 
-    private int lastSetWidth = DEFAULT_WIDTH;
-    private int lastSetHeight = DEFAULT_WIDTH;
+    private int widthBeforeFullscreen = DEFAULT_WIDTH;
+    private int heightBeforeFullscreen = DEFAULT_WIDTH;
+    private boolean fullscreen = false;
 
     public int width = DEFAULT_WIDTH;
     public int height = DEFAULT_HEIGHT;
@@ -115,9 +116,8 @@ public abstract class Wein2DApplication implements RenderCalls
 
     public final void setSize(int width, int height)
     {
-        panel.setSize(width, height);
-        lastSetWidth = width;
-        lastSetHeight = height;
+        this.width = width;
+        this.height = height;
     }
 
     public final void setTitle(String title)
@@ -127,6 +127,8 @@ public abstract class Wein2DApplication implements RenderCalls
 
     public final void setFullscreen(boolean fullscreen)
     {
+        this.fullscreen = fullscreen;
+
         // get frame info
         boolean frameVisible = frame.isVisible();
         boolean frameResizable = frame.isResizable();
@@ -150,7 +152,7 @@ public abstract class Wein2DApplication implements RenderCalls
         if(fullscreen)
             frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         else
-            frame.setSize(lastSetWidth, lastSetHeight);
+            frame.setSize(widthBeforeFullscreen, heightBeforeFullscreen);
 
         // show it and position it if needed
         frame.setVisible(frameVisible);
@@ -187,6 +189,11 @@ public abstract class Wein2DApplication implements RenderCalls
     {
         width = panel.getWidth();
         height = panel.getHeight();
+        if(!fullscreen)
+        {
+            widthBeforeFullscreen = width;
+            heightBeforeFullscreen = height;
+        }
         deltaTime = gameloop.getDeltaTime();
 
         if(windowFocusManager.buttonsShouldReset)
