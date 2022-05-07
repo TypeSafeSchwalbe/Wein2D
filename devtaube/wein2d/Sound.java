@@ -30,6 +30,7 @@ import kuusisto.tinysound.Music;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.net.URL;
 
@@ -56,7 +57,7 @@ public final class Sound
                     break;
 
                 case CLASSPATH:
-                    audioInputStream = AudioSystem.getAudioInputStream(ClassLoader.getSystemClassLoader().getResourceAsStream(filePath));
+                    audioInputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(ClassLoader.getSystemClassLoader().getResourceAsStream(filePath)));
                     break;
 
                 case WEB_URL:
