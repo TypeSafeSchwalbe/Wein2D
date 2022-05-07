@@ -54,6 +54,9 @@ class Panel extends JPanel {
 
         super.paintComponent(g);
         currentGraphics = (Graphics2D) g;
+        currentGraphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+        currentGraphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+        currentGraphics.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_SPEED);
 
         wein2DApplication.internalOnFrame();
 

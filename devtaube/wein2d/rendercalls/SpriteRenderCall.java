@@ -136,13 +136,10 @@ public final class SpriteRenderCall implements RenderCall
         Graphics2D graphics = renderCalls.getGraphics();
         AffineTransform originalTransform = graphics.getTransform();
 
-        if(colorAlpha != 255)
-            graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) colorAlpha / 255));
+        graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) colorAlpha / 255));
 
         if(angle != 0)
         {
-            graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
-
             if(Double.isNaN(rotationPointX) || Double.isNaN(rotationPointY))
                 graphics.rotate(angle, posX + width / 2.0, posY + height / 2.0);
             else

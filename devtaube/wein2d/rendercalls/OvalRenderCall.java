@@ -109,8 +109,7 @@ public final class OvalRenderCall implements RenderCall
 
         Graphics2D graphics = renderCalls.getGraphics();
 
-        if(colorAlpha != 255)
-            graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) colorAlpha / 255));
+        graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) colorAlpha / 255));
 
         graphics.setPaint(new Color(colorRed, colorGreen, colorBlue));
         graphics.fillOval((int) Math.floor(posX), (int) Math.floor(posY), (int) Math.floor(width), (int) Math.floor(height));

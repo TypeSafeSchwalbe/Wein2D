@@ -133,8 +133,7 @@ public final class RectangleRenderCall implements RenderCall
         Graphics2D graphics = renderCalls.getGraphics();
         AffineTransform originalTransform = graphics.getTransform();
 
-        if(colorAlpha != 255)
-            graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) colorAlpha / 255));
+        graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) colorAlpha / 255));
 
         graphics.setPaint(new Color(colorRed, colorGreen, colorBlue));
 

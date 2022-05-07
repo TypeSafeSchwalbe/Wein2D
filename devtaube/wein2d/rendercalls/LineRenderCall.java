@@ -117,8 +117,7 @@ public final class LineRenderCall implements RenderCall
 
         Graphics2D graphics = renderCalls.getGraphics();
 
-        if(colorAlpha != 255)
-            graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) colorAlpha / 255));
+        graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) colorAlpha / 255));
 
         graphics.setPaint(new Color(colorRed, colorGreen, colorBlue));
         graphics.setStroke(new BasicStroke((float) Math.floor(lineWidth)));
