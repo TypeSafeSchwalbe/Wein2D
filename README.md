@@ -1,5 +1,5 @@
 # About
-Wein2D is a library for handling graphics, input and sound for Windows applications (and probably MacOS and Linux too) in Java with very similar method names and structure to Wein2D-Android to allow for easy porting of code across libraries.
+Wein2D is a library for handling graphics, input and sound for Windows, Linux and MacOS applications in Java with very similar method names and structure to Wein2D-Android to allow for easy porting of code across libraries.
 
 Wein2D uses [TinySound](https://github.com/finnkuusisto/TinySound) for it's sound.
 
